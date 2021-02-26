@@ -25,6 +25,13 @@ namespace HayleesThreads
     {
       services.AddMvc();
 
+      services.AddEntityFrameworkMySql()
+        .AddDbContext<HayleesThreadsContext>(options => options
+        .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
+
+      services.AddIdentity<ApplicationUser, IdentityRole>()
+        .AddEntityFrameworkStores<HayleesThreadsContext>()
+        .AddDefaultTokenProviders();
 
       services.Configure<IdentityOptions>(options =>
       {
