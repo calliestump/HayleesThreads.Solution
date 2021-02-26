@@ -1,0 +1,29 @@
+@{
+  Layout = "_Layout";
+}
+
+@using HayleesThreads.Models;
+@model List<HayleesThreads.Models.Product>;
+<div class="productCollection">
+<h3>HayleesThreads Collection</h3>
+@if (User.Identity.IsAuthenticated && User.IsInRole("Admin")) 
+{
+    <p><a class="nav-link" href= "/ProductManager">Manage Products</a></p>
+}
+<hr />
+
+@if (Model.Count == 0)
+{
+  <h4><span>No products have been added to HayleesThreads :(</span></h4> // This will not show on views. Unsure if it is a syntax or VS error.
+}
+
+@foreach (Product product in Model)
+{
+    <div class="container card">
+    <h4>@Html.ActionLink($"{product.ProductName}", "Details", new { id = product.ProductId })</h4>
+    </div>
+  <br />
+}
+<br />
+<p>@Html.ActionLink("Add new product", "Create")</p>
+</div>
