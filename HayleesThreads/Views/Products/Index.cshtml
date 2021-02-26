@@ -5,7 +5,7 @@
 @using HayleesThreads.Models;
 @model List<HayleesThreads.Models.Product>;
 <div class="productCollection">
-<h3>HayleesThreads Collection</h3>
+<h2 style="color: white"><i>HayleesThreads</i> Collection</h2>
 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")) 
 {
     <span><a class="nav-link" href= "/ProductManager">Manage Products</a></span>
@@ -21,7 +21,7 @@
 @foreach (Product product in Model)
 {
     <div class="container card">
-    <h4>@Html.ActionLink($"{product.ProductName}", "Details", new { id = product.ProductId })</h4>
+    <h4>@Html.ActionLink("'" + $"{product.ProductName}" + "'", "Details", new { id = product.ProductId })</h4>
     </div>
   <br />
 }

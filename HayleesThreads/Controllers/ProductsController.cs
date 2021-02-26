@@ -54,5 +54,13 @@ namespace HayleesThreads.Controllers
       var thisProduct = _db.Products.FirstOrDefault(product => product.ProductId == id);
       return View(thisProduct);
     }
+
+    [HttpPost]
+    public ActionResult Edit(Product product)
+    {
+      _db.Entry(product).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 } 

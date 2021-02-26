@@ -20,7 +20,7 @@ body {
 span {
   color: rgb(192, 53, 53);
 }
-h1, h3 {
+h1, h2, h3, h4, p {
   color: white;
 }
 .nav-link {
@@ -52,4 +52,8 @@ HTML.Label {
   border-style: outset;
   border-color: rgb(235, 209, 192);
   padding: 10px;
+}
+
+input::placeholder, input {
+  text-align: center;
 }
