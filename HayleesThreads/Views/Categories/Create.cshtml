@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+@model HayleesThreads.Models.Category
+<div class="container card">
+<h4 style="color:white">Add Category to HayleesThreads</h4>
+<hr />
+@using (Html.BeginForm())
+{
+  <span style="color:white">@Html.Label("Category Name")</span>
+  <br />
+  @Html.TextBoxFor(model => model.CategoryName)
+  <br /><br />
+  <input type="submit" class="btn btn-outline-light" type="button" value="Add new Category!" />
+}
+<br />
+<p>@Html.ActionLink("Show all Categoryies", "Index")</p>
+</div>

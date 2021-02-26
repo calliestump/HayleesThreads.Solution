@@ -20,6 +20,7 @@ namespace HayleesThreads.Controllers
       _db = db;
     }
 
+    [HttpGet("/")]
     public ActionResult Index()
     {
       List<Product> model = _db.Products.ToList();
@@ -31,6 +32,26 @@ namespace HayleesThreads.Controllers
           .Include(product => product.JoinTables)
           .ThenInclude(join => join.Category)
           .FirstOrDefault(product => product.ProductId == id);
+      return View(thisProduct);
+    }
+
+    [Authorize]
+    public ActionResult Create()
+    {
+      return View();
+    }
+    
+    [HttpPost]
+    public ActionResult Create(Product product)
+    {
+      _db.Products.Add(product);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+    [Authorize]
+    public ActionResult Edit(int id)
+    {
+      var thisProduct = _db.Products.FirstOrDefault(product => product.ProductId == id);
       return View(thisProduct);
     }
   }
