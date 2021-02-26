@@ -9,7 +9,7 @@
 
 @if(@Model.JoinTables.Count == 0)
 {
-  <span><p>This Category does not contain any products :(</p></span>
+  <span>This Category does not contain any products :(</span><br />
 }
 else
 {
@@ -18,11 +18,14 @@ else
     @foreach(var join in Model.JoinTables)
     {
       <div class="container card">
+        <hr />
         <h3><strong>@join.Product.ProductName</strong></h3>
         @using (Html.BeginForm("DeleteProduct", "Categories"))
         {
           @Html.Hidden("joinId", @join.CategoryProductId)
-          <input type="submit" value="Delete" />
+          <br />
+          <input type="submit" class="btn btn-outline-light" value="Remove" />
+          <hr />
         }
       </div>
       <br />

@@ -1,0 +1,23 @@
+@{
+ Layout = "_Layout";
+}
+ 
+@model HayleesThreads.Models.Product
+<div class="container card">
+  <h3>Assign category to <br /> @Html.Label("'") <strong>@Html.DisplayFor(model => model.ProductName) @Html.Label("'")</strong></h3>
+  <hr />
+  <br />
+  @using (Html.BeginForm())
+  {
+  @Html.HiddenFor(model => model.ProductId)
+  
+  <h4>@Html.Label("Select Category")</h4>
+
+  <p>@Html.DropDownList("CategoryId")</p>
+  <br />
+  <input type="submit" value="Save" class="btn btn-outline-light" />
+  }
+  <br />
+  <hr />
+  <p>@Html.ActionLink("Show all products", "Index")</p>
+</div>

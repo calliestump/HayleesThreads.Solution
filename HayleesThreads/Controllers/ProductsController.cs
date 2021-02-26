@@ -62,5 +62,49 @@ namespace HayleesThreads.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    [Authorize(Roles = "Admin")]
+    public ActionResult Delete(int id)
+    {
+      var thisProduct = _db.Products.FirstOrDefault(product => product.ProductId == id);
+      return View(thisProduct);
+    }
+    
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+      var thisProduct = _db.Products.FirstOrDefault(product => product.ProductId == id);
+      _db.Products.Remove(thisProduct);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    [Authorize]
+    public ActionResult AddCategory(int id)
+    {
+      var thisProduct = _db.Products.FirstOrDefault(products => products.ProductId == id);
+      ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "CategoryName");
+      return View(thisProduct);
+    }
+    [HttpPost]
+    public ActionResult AddCategory(Product product, int CategoryId)
+    {
+      if (CategoryId != 0 )
+      {
+        _db.CategoryProduct.Add(new CategoryProduct() { CategoryId = CategoryId, ProductId = product.ProductId });
+      }
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    [Authorize]
+    [HttpPost]
+    public ActionResult DeleteCategory(int joinId)
+    {
+      var joinEntry = _db.CategoryProduct.FirstOrDefault(entry => entry.CategoryProductId == joinId);
+      _db.CategoryProduct.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 } 

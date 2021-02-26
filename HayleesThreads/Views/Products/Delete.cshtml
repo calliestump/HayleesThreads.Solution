@@ -1,0 +1,16 @@
+@{
+  Layout = "_Layout";
+}
+
+@model HayleesThreads.Models.Product
+<div class="container card">
+  <h2>Are you sure you want to delete this Product?</h2>
+
+  <h3><strong>@Html.Label("'") @Html.DisplayFor(model => model.ProductName) @Html.Label("'")</strong></h3>
+  @using (Html.BeginForm())
+  {
+    <input type="submit" value="Delete" class="btn btn-outline-light" />
+  }
+  <br />
+  <p>@Html.ActionLink("Back to Products list", "Index")</p>
+</div>
