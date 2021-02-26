@@ -8,14 +8,14 @@
     ViewBag.Title = "All Roles";
 }
 
-<h1>All Roles:</h1>
+<h1>Active Roles:</h1>
 
 @if (Model.Any())
 {
   <hr />
   foreach(var role in Model)
   {
-    <div class="card">
+    <div class="container card">
       <div class="card-header">
         <p style="color:rgb(133, 115, 96)"><strong>Role Id:</strong><br /><span style="color:white">@role.Id</span></p>
       </div>
@@ -32,8 +32,8 @@
         </div>
     </div>
     <hr />
-    @Html.ActionLink("Create Role", "CreateRole", "Administration", null, new { @class="btn btn-outline-light" })
   }
+    @Html.ActionLink("Create Role", "CreateRole", "Administration", null, new { @class="btn btn-outline-light" })
 }
 else
 {

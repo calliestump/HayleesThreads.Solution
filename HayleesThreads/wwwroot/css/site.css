@@ -6,7 +6,7 @@
   width: 5in;
   height: auto;
 }
-nav {
+nav.navbar {
   background-color: rgb(214, 178, 155);
   font-size: large;
   height: 95px;

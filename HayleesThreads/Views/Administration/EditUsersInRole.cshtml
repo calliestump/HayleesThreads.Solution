@@ -11,9 +11,9 @@
 @using (Html.BeginForm("EditUsersInRole", "Administration", FormMethod.Post))
 {
   <br>
-  <div class="card">
+  <div class="container card">
     <div class="card-header">
-      <h1>Add or remove users from this role</h1>
+      <h1>Select users for role:</h1>
     </div>
     <div class="card-body">
       @for(int i = 0; i < Model.Count; i++)
