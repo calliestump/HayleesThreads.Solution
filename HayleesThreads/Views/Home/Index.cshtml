@@ -1,7 +1,9 @@
 ﻿@{
     Layout = "_Layout";
 }
+@using HayleesThreads.Models;
+@model List<HayleesThreads.Models.Category>;
 
-<div class="text-center">
-    <h1 class="display-4">HayleesThreads</h1>
+<div class="container card">
+  <h4>@Html.ActionLink("Categories", "Index",  "Categories")</h4>
 </div>
