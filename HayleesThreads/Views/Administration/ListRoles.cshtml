@@ -17,10 +17,10 @@
   {
     <div class="card">
       <div class="card-header">
-        Role Id: @role.Id
+        <p style="color:rgb(133, 115, 96)"><strong>Role Id:</strong><br /><span style="color:white">@role.Id</span></p>
       </div>
       <div class="card-body">
-        <h3 class="card-title">@role.Name</h3>
+        <h3 class="card-title"><strong>@role.Name</strong></h3>
       </div>
       <div class="card-footer">
         @using (Html.BeginForm("DeleteRole", "Administration"))

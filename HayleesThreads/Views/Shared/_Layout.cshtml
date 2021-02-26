@@ -3,14 +3,15 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - HayleesThreads</title>
-
+    <title>@ViewData["Title"] HayleesThreads</title>
+    <link rel="icon" type="image/jpg" href="~/img/heart.png"/>
+    
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
               crossorigin="anonymous"
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"/>
@@ -19,36 +20,93 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">HayleesThreads</a>
+                <a class="navbar-brand" href="/"><i>HayleesThreads</i></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
+
+                        <input id="search_param" name="search_param" value="all" class="form-control" placeholder="Search">         
+                        <span class="input-group-btn">
+                            <button class="btn btn-outline-light" type="button"><span class="glyphicon glyphicon-search"></span>Search</button>
+                        </span>
+                        @* <li class="nav-item">
+                            @await Component.InvokeAsync("CategoryMenu")
+                        </li> *@
+                        @* If user is logged in as admin show administration page *@
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")) 
+                        {
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a  class="nav-link text-black" href="/administration/listroles">Administration</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+                        }
+      
+
+                        
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li class="nav-item">
+                                @using (Html.BeginForm("Index", "Account"))
+                                {
+                                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                                    {
+                                        
+                                     
+                                        @* <input type="submit" class="nav-item btn btn-link text-white" style="width:auto" value="Logout @User.Identity.Name">  *@
+                                        <a type="submit" class="nav-link text-black" href="/account/index">Logout:Admin</a>
+                                    }
+                                    else
+                                    {
+                                        @* <input type="submit" class="nav-item btn btn-link text-white" style="width:auto" value="Logout @User.Identity.Name"> *@
+                                        <a type="submit" class="nav-link text-black" href="/account/index">Logout:@User.Identity.Name</a>
+                                    }
+                                }
+                                </li>
+                            }
+                            else
+                            {
+                            <li class="nav-item">
+                                <a class="nav-link text-black" id="registerNav" href="/account/register">Register</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-black" id="loginNav" href="/account/login">Login</a>
+                            </li>
+                            }
+                        
+
+                        @* <li>
+                            <div class="dropdown">
+                                <button class="dropbtn">Dropdown
+                                <i class="fa fa-caret-down"></i>
+                                </button>
+                                <div class="dropdown-content">
+                                    <a href="#">Link 1</a>
+                                    <a href="#">Link 2</a>
+                                    <a href="#">Link 3</a>
+                                </div>
+                            </div>
+                        </li> *@
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+    <br />
     <div class="container">
         <partial name="_CookieConsentPartial" />
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
+    <br />
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2021 - HayleesThreads - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <br />
+            &copy; 2021 - HayleesThreads - <a class="nav-link" href= "/Privacy">Privacy Policy</a>
         </div>
     </footer>
 

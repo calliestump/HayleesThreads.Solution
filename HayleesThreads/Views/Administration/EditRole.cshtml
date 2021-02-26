@@ -15,11 +15,11 @@
     </div>
     <div class="card-body">
       <div class="form-group">
-        @Html.Label("Role Id")
+        <strong style="color:rgb(133, 115, 96)">@Html.Label("Role Id")</strong>
         @Html.TextBoxFor(user=> user.Id,  new { @class = "form-control", @disabled = "disabled" })
       </div>
       <div class="form-group">
-        @Html.Label("Role Name")
+        <strong style="color:rgb(133, 115, 96)">@Html.Label("Role Name")</strong>
         @Html.TextBoxFor(user=> user.RoleName, new { @class = "form-control" })
       </div>
       @Html.ValidationSummary(false,"",new { @class = "text-danger"})
@@ -42,7 +42,7 @@
         {
           foreach(var user in Model.Users)
           {
-            <h5 class="card-title">@user</h5>
+            <li style="color:white" class="card-title">@user</li>
           }
         }
         else

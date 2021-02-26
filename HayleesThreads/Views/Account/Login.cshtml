@@ -6,21 +6,22 @@
 
 @model LoginViewModel
 <div class="container card">
+<br />
 <h3><strong>Log in</strong></h3>
 <hr />
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(m => m.Email)<br>
+    <span style="color: white">@Html.LabelFor(m => m.Email)</span><br>
     @Html.TextBoxFor(m => m.Email)<br><br>
 
-    @Html.LabelFor(m => m.Password)<br>
+    <span style="color:white">@Html.LabelFor(m => m.Password)</span><br>
     @Html.PasswordFor(m => m.Password)<br><br>
 
-    <input type="submit" value="Log in" class="btn btn-default" />
+    <input type="submit" value="Log in" class="btn btn-outline-light" />
 }
 <br /><br />
-<p>Don't have an account?</p>
-<p>@Html.ActionLink("Register", "Register")</p>
+<p style="color:rgb(100, 90, 96)">Don't have an account?</p>
+<h5>@Html.ActionLink("Register", "Register")</h5>
 <hr />
-<p>@Html.ActionLink("Continue as Guest", "Index", "Home")</p>
+<h5>@Html.ActionLink("Continue as Guest", "Index", "Home")</ph5
 </div>
