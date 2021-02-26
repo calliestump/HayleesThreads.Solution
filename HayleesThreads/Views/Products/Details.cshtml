@@ -1,0 +1,41 @@
+@{
+  Layout = "_Layout";
+}
+
+@model HayleesThreads.Models.Product;
+<div class="productDetails">
+<h3><strong>@Html.DisplayFor(model => model.ProductName)</strong> Details</h3>
+<hr />
+
+
+
+@if(@Model.JoinTables.Count == 0)
+{
+  <span><p>This product is not assigned to any categories :(</p></span>
+}
+else
+{
+ 
+  <h4>Categories within @Html.DisplayFor(model => model.ProductName):</h4>
+    <br />
+    @foreach(var join in Model.JoinTables)
+    {
+      <div class="container card">
+
+      <h3><strong>@join.Category.CategoryName</strong></h3>
+      @using (Html.BeginForm("DeleteCategory", "Products"))
+      {
+        @Html.Hidden("joinId", @join.CategoryProductId)
+        <input type="submit" value="Remove" />
+      }
+      </div>
+      <br>
+    }
+
+}
+<br />
+<p>@Html.ActionLink("Add a category", "AddCategory", new { id = Model.ProductId })</p>
+<p>@Html.ActionLink("Back to Products list", "Index")</p>
+<p>@Html.ActionLink("Edit Product", "Edit", new { id = Model.ProductId })</p>
+<p>@Html.ActionLink("Delete Product", "Delete", new { id = Model.ProductId })</p>
+</div>

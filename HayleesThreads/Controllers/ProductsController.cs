@@ -25,5 +25,13 @@ namespace HayleesThreads.Controllers
       List<Product> model = _db.Products.ToList();
       return View(model);
     }
+    public ActionResult Details(int id)
+    {
+      var thisProduct = _db.Products
+          .Include(product => product.JoinTables)
+          .ThenInclude(join => join.Category)
+          .FirstOrDefault(product => product.ProductId == id);
+      return View(thisProduct);
+    }
   }
 } 
