@@ -3,15 +3,14 @@
 }
 
 @model HayleesThreads.Models.Product;
-<div class="productDetails">
-<h3><strong>@Html.DisplayFor(model => model.ProductName)</strong> Details</h3>
+
+<h2><strong>'@Html.DisplayFor(model => model.ProductName)'</strong> Details</h2>
 <hr />
-
-
 
 @if(@Model.JoinTables.Count == 0)
 {
-  <span>This product is not assigned to any categories :(</span><br />
+  <br />
+  <h5><span>This product is not assigned to any categories :(</span><br /></h5>
 }
 else
 {
@@ -34,9 +33,24 @@ else
     }
 
 }
-<br />
-<p>@Html.ActionLink("Add a category", "AddCategory", new { id = Model.ProductId })</p>
-<p>@Html.ActionLink("Back to Products list", "Index")</p>
-<p>@Html.ActionLink("Edit Product", "Edit", new { id = Model.ProductId })</p>
-<p>@Html.ActionLink("Delete Product", "Delete", new { id = Model.ProductId })</p>
-</div>
+
+@* Product Admin Controls *@
+@if (User.Identity.IsAuthenticated && User.IsInRole("Admin")) 
+{
+  <br />
+  <hr />
+  <br />
+  <div class="container card">
+    <br />
+    <h1><strong>Admin Controls</strong></h1>
+    <hr />
+    <br />
+    <h5>@Html.ActionLink("Edit Product", "Edit", new { id = Model.ProductId })</h5>
+    <h5>@Html.ActionLink("Delete Product", "Delete", new { id = Model.ProductId })</h5>
+    <h5>@Html.ActionLink("Assign this product to a category", "AddCategory", new { id = Model.ProductId })</h5>
+    <br />
+    <hr />
+    <h5>@Html.ActionLink("Back to Products list", "Index")</h5>
+    <br />
+  </div>
+}

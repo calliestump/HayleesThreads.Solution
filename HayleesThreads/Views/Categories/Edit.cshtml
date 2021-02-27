@@ -2,21 +2,25 @@
   Layout = "_Layout";
 }
 
-@model HayleesThreads.Models.Category 
+@model HayleesThreads.Models.Category
 <div class="container card">
-<h3>Edit Details: @Html.Label("'")<strong>@Html.DisplayFor(model => model.CategoryName)</strong>@Html.Label("'")</h3>
+<br />
+<h2>Edit Details: @Html.Label("'")<strong>@Html.DisplayFor(model => model.CategoryName)</strong>@Html.Label("'")</h2>
 <hr />
-
+<br />
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.CategoryId)
 
-  <h4 style="color: white">@Html.Label("Category Name")</h4>
+  <h3>@Html.Label("Category Name")</h3>
   
   @Html.EditorFor(model => model.CategoryName)
   <br /><br />
   <input type="submit" value="Save" class="btn btn-outline-light" />
 }
 <br />
-<p>@Html.ActionLink("Back to Categories list", "Index")</p>
+<hr />
+<br />
+<h5>@Html.ActionLink("Back to Categories list", "Index")</h5>
+<br />
 </div>

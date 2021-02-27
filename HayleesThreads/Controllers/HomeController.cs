@@ -12,8 +12,10 @@ namespace HayleesThreads.Controllers
 
       [HttpGet("/Privacy")]
       public IActionResult Privacy()
-        {
-            return View();
-        }
+      {
+          return View();
+      }
+
+      
     }
 }

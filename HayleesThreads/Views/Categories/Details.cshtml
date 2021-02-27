@@ -6,10 +6,10 @@
 <div class="categoryDetails">
 <h3><strong>@Html.DisplayFor(model => model.CategoryName)</strong> Details</h3>
 <hr />
-
 @if(@Model.JoinTables.Count == 0)
 {
-  <span>This Category does not contain any products :(</span><br />
+  <br />
+  <h5><span>This Category does not contain any products :(</span><br /></h5>
 }
 else
 {
@@ -31,9 +31,26 @@ else
       <br />
     }
 }
-<br />
-<p>@Html.ActionLink("Add a product", "AddProduct", new { id = Model.CategoryId })</p>
-<p>@Html.ActionLink("Back to Categories list", "Index")</p>
-<p>@Html.ActionLink("Edit Category", "Edit", new { id = Model.CategoryId })</p>
-<p>@Html.ActionLink("Delete Category", "Delete", new { id = Model.CategoryId })</p>
+@* Product Admin Controls *@
+@if (User.Identity.IsAuthenticated && User.IsInRole("Admin")) 
+{
+  <br />
+  <hr />
+  <br />
+  <div class="container card">
+    <br />
+    <h1><strong>Admin Controls</strong></h1>
+    <hr />
+    <br />
+    <p>@Html.ActionLink("Edit Category", "Edit", new { id = Model.CategoryId })</p>
+    <p>@Html.ActionLink("Delete Category", "Delete", new { id = Model.CategoryId })</p>
+    <p>@Html.ActionLink("Assign a product to this category", "AddProduct", new { id = Model.CategoryId })</p>
+    <br />
+    <hr />
+    <p>@Html.ActionLink("Back to Categories list", "Index")</p>
+    <br />
+  </div>
+}
+
+
 </div>

@@ -4,18 +4,23 @@
 
 @model HayleesThreads.Models.Product
 <div class="container card">
-<h3>Edit Details: @Html.Label("'")<strong>@Html.DisplayFor(model => model.ProductName)</strong>@Html.Label("'")</h3>
+<br />
+<h2>Edit Details: @Html.Label("'")<strong>@Html.DisplayFor(model => model.ProductName)</strong>@Html.Label("'")</h2>
 <hr />
+<br />
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.ProductId)
 
-  <h4>@Html.Label("Product Name")</h4>
+  <h3>@Html.Label("Product Name")</h3>
   
   @Html.EditorFor(model => model.ProductName)
   <br /><br />
-  <input type="submit" value="Save" class="btn btn-default" />
+  <input type="submit" value="Save" class="btn btn-outline-light" />
 }
 <br />
-<p>@Html.ActionLink("Back to Products list", "Index")</p>
+<hr />
+<br />
+<h5>@Html.ActionLink("Back to Products list", "Index")</h5>
+<br />
 </div>

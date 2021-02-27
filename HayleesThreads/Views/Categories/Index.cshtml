@@ -5,24 +5,26 @@
 @using HayleesThreads.Models;
 @model List<HayleesThreads.Models.Category>;
 <div class="categorySelection">
-  <h3>HayleesThreads Categories</h3>
-  @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")) 
-  {
-      <a class="nav-link" href= "/CategoryManager">Manage Categories</a>
-  }
+  <h2><i>HayleesThreads</i> Categories</h2>
+  <span><a class="nav-link" href= "/">See All Products</a></span>
   <hr />
   @if (Model.Count == 0)
   {
+    <br />
     <h4><span>No categories have been added to HayleesThreads :(</span></h4>
   }
   
   @foreach (Category category in Model)
   {
+    <br />
     <div class="container card">
       <h4>@Html.ActionLink($"{category.CategoryName}", "Details", new { id = category.CategoryId })</h4>
     </div>
     <br />
   }
   <br />
-  <p>@Html.ActionLink("Add new category", "Create")</p>
+  @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")) 
+  {
+    <p>@Html.ActionLink("Add new category", "Create")</p>
+  }
 </div>
