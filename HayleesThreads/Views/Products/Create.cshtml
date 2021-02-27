@@ -21,13 +21,17 @@
   <br />
   @Html.TextBoxFor(model => model.ProductDescription)
   <br /><br />
-    <span style="color:white">@Html.Label("Featured? (true/false)")</span>
+  <span style="color:white">@Html.Label("Featured? (true/false)")</span>
   <br />
   @Html.TextBoxFor(model => model.Featured)
   <br /><br />
   <span style="color:white">@Html.Label("Is this apart of Seasonal: All Ears? (true/false)")</span>
   <br />
   @Html.TextBoxFor(model => model.AllEars)
+  <br /><br />
+  <span style="color:white">@Html.Label("Product Image")</span>
+  <br />
+  @Html.TextBoxFor(model => model.ProductImage)
   <br /><br />
   <input class="btn btn-outline-light" type="submit" type="button" value="Upload new Product!" />
 }

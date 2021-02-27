@@ -12,6 +12,7 @@ namespace HayleesThreads.Models
     public string ProductName { get; set; }
 
     public int ProductPrice { get; set; }
+    public int ProductImage { get; set; }
 
     public string ProductDescription { get; set; }
 
