@@ -184,6 +184,7 @@ namespace HayleesThreads.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     ProductName = table.Column<string>(nullable: true),
                     ProductPrice = table.Column<int>(nullable: false),
+                    ProductImage = table.Column<int>(nullable: false),
                     ProductDescription = table.Column<string>(nullable: true),
                     Featured = table.Column<bool>(nullable: false),
                     AllEars = table.Column<bool>(nullable: false),
@@ -233,16 +234,21 @@ namespace HayleesThreads.Migrations
                 values: new object[,]
                 {
                     { 1, "Explore my custom Hoodies!", "Hoodies", null },
-                    { 2, "Explore my custom Crews", "Crews", null }
+                    { 2, "Explore my custom Crews", "Crews", null },
+                    { 3, "Explore my custom T-Shirts", "T-Shirts", null },
+                    { 4, "Explore my custom Tanks", "Tanks", null },
+                    { 5, "Explore my custom Sweats", "Sweats", null },
+                    { 6, "Explore my custom Jeans", "Jeans", null },
+                    { 7, "Explore my custom Hats", "Hats", null }
                 });
 
             migrationBuilder.InsertData(
                 table: "Products",
-                columns: new[] { "ProductId", "AllEars", "CategoryId", "Featured", "ProductDescription", "ProductName", "ProductPrice", "UserId" },
+                columns: new[] { "ProductId", "AllEars", "CategoryId", "Featured", "ProductDescription", "ProductImage", "ProductName", "ProductPrice", "UserId" },
                 values: new object[,]
                 {
-                    { 1, false, 1, true, "Embroided 'Tree of Life' Crew", "'Tree of Life'", 14, null },
-                    { 2, true, 2, true, "Hand-Embroided 'Appa' Crew", "'Appa'", 12, null }
+                    { 1, false, 1, true, "Embroided 'Tree of Life' Crew", 0, "'Tree of Life'", 14, null },
+                    { 2, true, 2, true, "Hand-Embroided 'Appa' Crew", 0, "'Appa'", 12, null }
                 });
 
             migrationBuilder.CreateIndex(

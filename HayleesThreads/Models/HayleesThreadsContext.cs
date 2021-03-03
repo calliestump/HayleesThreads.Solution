@@ -32,6 +32,42 @@ namespace HayleesThreads.Models
           CategoryDescription = "Explore my custom Crews",
           // CategoryImage = ""
         });
+         modelBuilder.Entity<Category>().HasData(new Category
+        {
+          CategoryId = 3,
+          CategoryName = "T-Shirts",
+          CategoryDescription = "Explore my custom T-Shirts",
+          // CategoryImage = ""
+        });
+         modelBuilder.Entity<Category>().HasData(new Category
+        {
+          CategoryId = 4,
+          CategoryName = "Tanks",
+          CategoryDescription = "Explore my custom Tanks",
+          // CategoryImage = ""
+        });
+        modelBuilder.Entity<Category>().HasData(new Category
+        {
+          CategoryId = 5,
+          CategoryName = "Sweats",
+          CategoryDescription = "Explore my custom Sweats",
+          // CategoryImage = ""
+        });
+        modelBuilder.Entity<Category>().HasData(new Category
+        {
+          CategoryId = 6,
+          CategoryName = "Jeans",
+          CategoryDescription = "Explore my custom Jeans",
+          // CategoryImage = ""
+        });
+        modelBuilder.Entity<Category>().HasData(new Category
+        {
+          CategoryId = 7,
+          CategoryName = "Hats",
+          CategoryDescription = "Explore my custom Hats",
+          // CategoryImage = ""
+        });
+        
   
 
         // Products

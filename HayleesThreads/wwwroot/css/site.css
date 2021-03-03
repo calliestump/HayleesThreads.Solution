@@ -8,6 +8,7 @@
 }
 nav.navbar {
   background-color: rgb(214, 178, 155);
+  background-color: rgb(224, 191, 171);
   font-size: large;
   height: 95px;
 }
@@ -57,3 +58,4 @@ HTML.Label {
 input::placeholder, input {
   text-align: center;
 }
+

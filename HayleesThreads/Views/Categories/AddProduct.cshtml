@@ -12,9 +12,9 @@
   @Html.HiddenFor(model => model.CategoryId)
   
   <h4>@Html.Label("Select Product")</h4>
-
-  <p>@Html.DropDownList("ProductId")</p>
   <br />
+  <p id ="dropDown" class="btn btn-outline-light">@Html.DropDownList("ProductId")</p>
+  <br /><br />
   <input type="submit" value="Save" class="btn btn-outline-light" />
   }
   <br />

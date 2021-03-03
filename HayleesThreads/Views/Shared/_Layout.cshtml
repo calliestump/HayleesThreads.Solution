@@ -20,24 +20,21 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3">
-            <div class="container">
+        <nav class="navbar navbar-expand-sm border-bottom box-shadow mb-3">
+            <div class="container d-flex justify-content-center">
                 <a class="navbar-brand" href="/"><i>HayleesThreads</i></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                @* <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
+                </button> *@
+                <div >
+                    <ul class="navbar-nav">
 
                         <input id="search_param" name="search_param" class="form-control" placeholder="Search">         
                         <span class="input-group-btn">
                             <button class="btn btn-outline-light" type="button"><span class="glyphicon glyphicon-search"></span>Search</button>
                         </span>
-                        @* <li class="nav-item">
-                            @await Component.InvokeAsync("CategoryMenu")
-                        </li> *@
-                        @* If user is logged in as admin show administration page *@
+                     
                         @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")) 
                         {
                         <li class="nav-item">
@@ -76,25 +73,64 @@
                                 <a class="nav-link text-black" id="loginNav" href="/account/login">Login</a>
                             </li>
                             }
-                        
+@*                         
 
-                        @* <li>
+                        <li>
+               
                             <div class="dropdown">
-                                <button class="dropbtn">Dropdown
-                                <i class="fa fa-caret-down"></i>
-                                </button>
+                                <button class="dropbtn">Dropdown</button>
                                 <div class="dropdown-content">
                                     <a href="#">Link 1</a>
                                     <a href="#">Link 2</a>
                                     <a href="#">Link 3</a>
                                 </div>
                             </div>
+                          
                         </li> *@
                     </ul>
                     
                 </div>
             </div>
         </nav>
+        <nav style="background-color: rgb(222, 190, 172);" class="navbar2 navbar-expand-sm border-bottom box-shadow mb-3">
+            <div class="d-flex justify-content-center">
+                    <ul class="navbar-nav ">
+                        <li class="nav-item2">
+                            <h5><a  class="nav-link" href="/Categories/Details/1">Hoodies</a></h5>
+                        </li>
+                       
+                        <li class="nav-item2">
+                            <h5><a  class="nav-link" href="/Categories/Details/2">Crews</a></h5>
+                        </li>
+                        <li class="nav-item2">
+                            <h5><a  class="nav-link" href="/Categories/Details/3">T-Shirts</a></h5>
+                        </li>
+                        <li class="nav-item2">
+                            <h5><a  class="nav-link" href="/Categories/Details/4">Tanks</a></h5>
+                        </li>
+                        <li class="nav-item2">
+                            <h5><a  class="nav-link" href="/Categories/Details/5">Sweats</a></h5>
+                        </li>
+                        <li class="nav-item2">
+                            <h5><a  class="nav-link" href="/Categories/Details/6">Jeans</a></h5>
+                        </li>
+                        <li class="nav-item2">
+                            <h5><a  class="nav-link" href="/Categories/Details/7">Hats</a></h5>
+                        </li>
+                    </ul>
+                    
+            </div>
+             @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")) 
+            {
+                <a class="nav-link" href= "/Categories">Manage Categories</a>
+            }
+        
+        </nav>
+        @* <nav class= "navbar2 navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3">
+                <span class="nav-cat">
+                   <p><a  class="nav-link text-black" href="/Categories/Details/1">Hoodies</a> | <a  class="nav-link text-black" href="/Categories/Details/2">Crews</a></p> 
+                </span>
+        </nav> *@
         
     </header>
     <br />

@@ -1,3 +1,4 @@
+
 <strong>Callie Stump</strong> | <i>HayleesThreads</i>
 
 <u>Description</u><br />
@@ -24,5 +25,6 @@ This web application will allow users to purchase original goods from <i><strong
 
 <u>Tools for Stretch Goals</u><br /> 
 * Stripe API? Paypal API?
+
 
 

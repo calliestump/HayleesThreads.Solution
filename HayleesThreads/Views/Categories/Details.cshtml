@@ -23,8 +23,11 @@ else
         @using (Html.BeginForm("DeleteProduct", "Categories"))
         {
           @Html.Hidden("joinId", @join.CategoryProductId)
-          <br />
-          <input type="submit" class="btn btn-outline-light" value="Remove" />
+           @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")) 
+          {
+            <br />
+            <input type="submit" class="btn btn-outline-light" value="Remove" />
+          }
           <hr />
         }
       </div>

@@ -100,6 +100,36 @@ namespace HayleesThreads.Migrations
                             CategoryId = 2,
                             CategoryDescription = "Explore my custom Crews",
                             CategoryName = "Crews"
+                        },
+                        new
+                        {
+                            CategoryId = 3,
+                            CategoryDescription = "Explore my custom T-Shirts",
+                            CategoryName = "T-Shirts"
+                        },
+                        new
+                        {
+                            CategoryId = 4,
+                            CategoryDescription = "Explore my custom Tanks",
+                            CategoryName = "Tanks"
+                        },
+                        new
+                        {
+                            CategoryId = 5,
+                            CategoryDescription = "Explore my custom Sweats",
+                            CategoryName = "Sweats"
+                        },
+                        new
+                        {
+                            CategoryId = 6,
+                            CategoryDescription = "Explore my custom Jeans",
+                            CategoryName = "Jeans"
+                        },
+                        new
+                        {
+                            CategoryId = 7,
+                            CategoryDescription = "Explore my custom Hats",
+                            CategoryName = "Hats"
                         });
                 });
 
