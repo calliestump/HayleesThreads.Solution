@@ -11,6 +11,7 @@ namespace HayleesThreads.Models
       }
     public virtual DbSet<Category> Categories { get; set; }
     public virtual DbSet<Product> Products { get; set; }
+    // public virtual DbSet<Cart> Carts { get; set; }
     public virtual DbSet<CategoryProduct> CategoryProduct { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -39,30 +40,23 @@ namespace HayleesThreads.Models
           CategoryDescription = "Explore my custom T-Shirts",
           // CategoryImage = ""
         });
-         modelBuilder.Entity<Category>().HasData(new Category
-        {
-          CategoryId = 4,
-          CategoryName = "Tanks",
-          CategoryDescription = "Explore my custom Tanks",
-          // CategoryImage = ""
-        });
         modelBuilder.Entity<Category>().HasData(new Category
         {
-          CategoryId = 5,
+          CategoryId = 4,
           CategoryName = "Sweats",
           CategoryDescription = "Explore my custom Sweats",
           // CategoryImage = ""
         });
         modelBuilder.Entity<Category>().HasData(new Category
         {
-          CategoryId = 6,
-          CategoryName = "Jeans",
-          CategoryDescription = "Explore my custom Jeans",
+          CategoryId = 5,
+          CategoryName = "Masks",
+          CategoryDescription = "Explore my custom Masks",
           // CategoryImage = ""
         });
         modelBuilder.Entity<Category>().HasData(new Category
         {
-          CategoryId = 7,
+          CategoryId = 6,
           CategoryName = "Hats",
           CategoryDescription = "Explore my custom Hats",
           // CategoryImage = ""
@@ -74,10 +68,10 @@ namespace HayleesThreads.Models
         modelBuilder.Entity<Product>().HasData(new Product
         {
           ProductId = 1,
-          ProductName = "'Tree of Life'",
-          ProductPrice = 14,
-          ProductDescription = "Embroided 'Tree of Life' Crew",
-          // ProductImage = "",
+          ProductName = "Tree of Life",
+          ProductPrice = 14.99m,
+          ProductDescription = "Embroided 'Tree of Life'",
+          ProductImage = "~/img/appa.jpg",
           Featured = true,
           AllEars = false,
           CategoryId = 1
@@ -86,10 +80,10 @@ namespace HayleesThreads.Models
         modelBuilder.Entity<Product>().HasData(new Product
         {
           ProductId = 2,
-          ProductName = "'Appa'",
-          ProductPrice = 12,
-          ProductDescription = "Hand-Embroided 'Appa' Crew",
-          // ProductImage = "",
+          ProductName = "Appa",
+          ProductPrice = 12.99m,
+          ProductDescription = "Hand-Embroided 'Appa' from Avatar: The Last Airbender",
+          ProductImage = "~/img/appa.jpg",
           Featured = true,
           AllEars = true,
           CategoryId = 2

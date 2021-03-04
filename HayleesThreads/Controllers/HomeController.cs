@@ -15,7 +15,6 @@ namespace HayleesThreads.Controllers
       {
           return View();
       }
-
       
     }
 }

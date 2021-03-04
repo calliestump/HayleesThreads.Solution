@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HayleesThreads.Migrations
 {
     [DbContext(typeof(HayleesThreadsContext))]
-    [Migration("20210303011259_Initial")]
+    [Migration("20210304041333_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -112,24 +112,18 @@ namespace HayleesThreads.Migrations
                         new
                         {
                             CategoryId = 4,
-                            CategoryDescription = "Explore my custom Tanks",
-                            CategoryName = "Tanks"
-                        },
-                        new
-                        {
-                            CategoryId = 5,
                             CategoryDescription = "Explore my custom Sweats",
                             CategoryName = "Sweats"
                         },
                         new
                         {
-                            CategoryId = 6,
-                            CategoryDescription = "Explore my custom Jeans",
-                            CategoryName = "Jeans"
+                            CategoryId = 5,
+                            CategoryDescription = "Explore my custom Masks",
+                            CategoryName = "Masks"
                         },
                         new
                         {
-                            CategoryId = 7,
+                            CategoryId = 6,
                             CategoryDescription = "Explore my custom Hats",
                             CategoryName = "Hats"
                         });
@@ -166,11 +160,11 @@ namespace HayleesThreads.Migrations
 
                     b.Property<string>("ProductDescription");
 
-                    b.Property<int>("ProductImage");
+                    b.Property<string>("ProductImage");
 
                     b.Property<string>("ProductName");
 
-                    b.Property<int>("ProductPrice");
+                    b.Property<decimal>("ProductPrice");
 
                     b.Property<string>("UserId");
 
@@ -187,10 +181,10 @@ namespace HayleesThreads.Migrations
                             AllEars = false,
                             CategoryId = 1,
                             Featured = true,
-                            ProductDescription = "Embroided 'Tree of Life' Crew",
-                            ProductImage = 0,
-                            ProductName = "'Tree of Life'",
-                            ProductPrice = 14
+                            ProductDescription = "Embroided 'Tree of Life'",
+                            ProductImage = "~/img/appa.jpg",
+                            ProductName = "Tree of Life",
+                            ProductPrice = 14.99m
                         },
                         new
                         {
@@ -198,10 +192,10 @@ namespace HayleesThreads.Migrations
                             AllEars = true,
                             CategoryId = 2,
                             Featured = true,
-                            ProductDescription = "Hand-Embroided 'Appa' Crew",
-                            ProductImage = 0,
-                            ProductName = "'Appa'",
-                            ProductPrice = 12
+                            ProductDescription = "Hand-Embroided 'Appa' from Avatar: The Last Airbender",
+                            ProductImage = "~/img/appa.jpg",
+                            ProductName = "Appa",
+                            ProductPrice = 12.99m
                         });
                 });
 

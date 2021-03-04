@@ -1,0 +1,101 @@
+@{
+    ViewData["Title"] = "Order ";
+}
+@{
+  Layout = "_Layout";
+}
+@model HayleesThreads.Models.Order
+
+<div class = "container card">
+  <h1>Order Form</h1>
+  <hr />
+  <p>Use this page for order form</p>
+  <div class="container-form">
+    <form id="orderForm" asp-controller="Payment" asp-action="Index" method="Post" class="form-horizontal" role="form">
+      <span style="color:white">@Html.Label("First Name")</span>
+      <br />
+      @Html.TextBoxFor(model => model.FirstName)</span>
+      <br /><br />
+      <span style="color:white">@Html.Label("Last Name")</span>
+      <br />
+      @Html.TextBoxFor(model => model.LastName)
+      <br /><br />
+      <span style="color:white">@Html.Label("Street Address")</span>
+      <br />
+      @Html.TextBoxFor(model => model.Address)
+      <br /><br />
+      <span style="color:white">@Html.Label("City")</span>
+      <br />
+      @Html.TextBoxFor(model => model.City)
+      <br /><br />
+      <span style="color:white">@Html.Label("State")</span>
+      <br />
+      @Html.TextBoxFor(model => model.State)
+      <br /><br />
+      <span style="color:white">@Html.Label("Zip Code")</span>
+      <br />
+      @Html.TextBoxFor(model => model.ZipCode)
+      <br /><br />
+      <span style="color:white">@Html.Label("Phone Number")</span>
+      <br />
+      @Html.TextBoxFor(model => model.PhoneNumber)
+      <br /><br />
+      <input class="btn btn-outline-light" type="submit" type="button" value="Proceed to Payment" />
+    </form>
+  </div>
+  <hr />
+  <a class="nav-link" href= "/Cart">Back to Cart</a>
+</div>
+      @* <div class="form-group">
+        <div class="col-md-5">
+          <input class="form-control" placeholder="First Name"/>
+          <span class="danger"></span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-5">
+          <input class="form-control" placeholder="Last Name"/>
+          <span class="danger"></span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-5">
+          <input class="form-control" placeholder="Address"/>
+          <span class="danger"></span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-5">
+          <input  class="form-control" placeholder="City"/>
+          <span class="danger"></span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-5">
+          <input class="form-control" placeholder="State"/>
+          <span class="danger"></span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-5">
+          <input class="form-control" placeholder="Zip Code"/>
+          <span class="danger"></span>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-5">
+          <input class="form-control" placeholder="Phone Number"/>
+          <span class="danger"></span>
+        </div>
+      </div>
+      <br />
+      <div class="form-group">
+        <div class="col-md-offset-2 col-md-5">
+          <input id="payment" type="submit" class="btn btn-outline-light" value="Proceed to Payment" />
+        </div>
+      </div> *@

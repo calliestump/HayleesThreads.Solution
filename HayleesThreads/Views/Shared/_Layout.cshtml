@@ -34,6 +34,7 @@
                         <span class="input-group-btn">
                             <button class="btn btn-outline-light" type="button"><span class="glyphicon glyphicon-search"></span>Search</button>
                         </span>
+
                      
                         @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")) 
                         {
@@ -73,7 +74,10 @@
                                 <a class="nav-link text-black" id="loginNav" href="/account/login">Login</a>
                             </li>
                             }
-@*                         
+                            <li class="nav-item">
+                                <a class="nav-link" href= "/Cart"> Cart</a></h4>
+                            </li>
+@*                          
 
                         <li>
                
@@ -106,16 +110,13 @@
                             <h5><a  class="nav-link" href="/Categories/Details/3">T-Shirts</a></h5>
                         </li>
                         <li class="nav-item2">
-                            <h5><a  class="nav-link" href="/Categories/Details/4">Tanks</a></h5>
+                            <h5><a  class="nav-link" href="/Categories/Details/4">Sweats</a></h5>
                         </li>
                         <li class="nav-item2">
-                            <h5><a  class="nav-link" href="/Categories/Details/5">Sweats</a></h5>
+                            <h5><a  class="nav-link" href="/Categories/Details/5">Masks</a></h5>
                         </li>
                         <li class="nav-item2">
-                            <h5><a  class="nav-link" href="/Categories/Details/6">Jeans</a></h5>
-                        </li>
-                        <li class="nav-item2">
-                            <h5><a  class="nav-link" href="/Categories/Details/7">Hats</a></h5>
+                            <h5><a  class="nav-link" href="/Categories/Details/6">Hats</a></h5>
                         </li>
                     </ul>
                     

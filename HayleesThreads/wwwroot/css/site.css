@@ -21,7 +21,7 @@ body {
 span {
   color: rgb(192, 53, 53);
 }
-h1, h2, h3, h4, p {
+h1, h2, h3, h4, h5, h6, p {
   color: white;
 }
 .nav-link {
@@ -59,3 +59,31 @@ input::placeholder, input {
   text-align: center;
 }
 
+form#orderForm, div#orderForm {
+  box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
+    0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
+  border-radius: 7px;
+  padding: 30px;
+}
+
+.container-form {
+  float: center;
+  margin-left: 3in;
+  margin: 0 auto;
+  }
+  
+  .form-horizontal {
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  .form-control {
+  width: 3in;
+  margin: 0 auto; 
+  width:250px;
+  margin-left: 0px;
+  }
+
+  #payment {
+    margin-left: 35px;
+  }

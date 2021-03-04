@@ -19,7 +19,7 @@ else
     {
       <div class="container card">
         <hr />
-        <h3><strong>@join.Product.ProductName</strong></h3>
+        <h3><strong>'@join.Product.ProductName'</strong></h3>
         @using (Html.BeginForm("DeleteProduct", "Categories"))
         {
           @Html.Hidden("joinId", @join.CategoryProductId)

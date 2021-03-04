@@ -183,8 +183,8 @@ namespace HayleesThreads.Migrations
                     ProductId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     ProductName = table.Column<string>(nullable: true),
-                    ProductPrice = table.Column<int>(nullable: false),
-                    ProductImage = table.Column<int>(nullable: false),
+                    ProductPrice = table.Column<decimal>(nullable: false),
+                    ProductImage = table.Column<string>(nullable: true),
                     ProductDescription = table.Column<string>(nullable: true),
                     Featured = table.Column<bool>(nullable: false),
                     AllEars = table.Column<bool>(nullable: false),
@@ -236,10 +236,9 @@ namespace HayleesThreads.Migrations
                     { 1, "Explore my custom Hoodies!", "Hoodies", null },
                     { 2, "Explore my custom Crews", "Crews", null },
                     { 3, "Explore my custom T-Shirts", "T-Shirts", null },
-                    { 4, "Explore my custom Tanks", "Tanks", null },
-                    { 5, "Explore my custom Sweats", "Sweats", null },
-                    { 6, "Explore my custom Jeans", "Jeans", null },
-                    { 7, "Explore my custom Hats", "Hats", null }
+                    { 4, "Explore my custom Sweats", "Sweats", null },
+                    { 5, "Explore my custom Masks", "Masks", null },
+                    { 6, "Explore my custom Hats", "Hats", null }
                 });
 
             migrationBuilder.InsertData(
@@ -247,8 +246,8 @@ namespace HayleesThreads.Migrations
                 columns: new[] { "ProductId", "AllEars", "CategoryId", "Featured", "ProductDescription", "ProductImage", "ProductName", "ProductPrice", "UserId" },
                 values: new object[,]
                 {
-                    { 1, false, 1, true, "Embroided 'Tree of Life' Crew", 0, "'Tree of Life'", 14, null },
-                    { 2, true, 2, true, "Hand-Embroided 'Appa' Crew", 0, "'Appa'", 12, null }
+                    { 1, false, 1, true, "Embroided 'Tree of Life'", "~/img/appa.jpg", "Tree of Life", 14.99m, null },
+                    { 2, true, 2, true, "Hand-Embroided 'Appa' from Avatar: The Last Airbender", "~/img/appa.jpg", "Appa", 12.99m, null }
                 });
 
             migrationBuilder.CreateIndex(

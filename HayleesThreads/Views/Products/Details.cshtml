@@ -4,35 +4,41 @@
 
 @model HayleesThreads.Models.Product;
 
-<h2><strong>'@Html.DisplayFor(model => model.ProductName)'</strong> Details</h2>
-<hr />
+<div class = "container card">
 
-@if(@Model.JoinTables.Count == 0)
-{
+  <h2><strong>'@Html.DisplayFor(model => model.ProductName)'</strong> Details</h2>
+  
+  <hr />
+  <img id="productImage" type="image/jpg" src="@Model.ProductImage" />
   <br />
-  <h5><span>This product is not assigned to any categories :(</span><br /></h5>
-}
-else
-{
- 
-  <h4>Categories within @Html.DisplayFor(model => model.ProductName):</h4>
+  <h4>@Html.DisplayFor(model => model.ProductDescription)</h4>
+  <br />
+  <h6><strong>$@Html.DisplayFor(model => model.ProductPrice)</strong></h6>
+  @* @if(@Model.JoinTables.Count == 0)
+  {
     <br />
-    @foreach(var join in Model.JoinTables)
-    {
-      <div class="container card">
-      <hr />
-      <h3><strong>@join.Category.CategoryName</strong></h3>
-      @using (Html.BeginForm("DeleteCategory", "Products"))
+    <h6><span>This product is not assigned to any categories :(</span><br /></h6>
+  }
+  else
+  {
+  
+    <h4>@Html.DisplayFor(model => model.ProductName) is assigned to:</h4>
+    
+      @foreach(var join in Model.JoinTables)
       {
-        @Html.Hidden("joinId", @join.CategoryProductId) <br />
-        <input type="submit" class="btn btn-outline-light" value="Remove" />
+        <p><strong>@join.Category.CategoryName</strong></p>
+        @using (Html.BeginForm("DeleteCategory", "Products"))
+        {
+          @Html.Hidden("joinId", @join.CategoryProductId) <br />
+          <input type="submit" class="btn btn-outline-light" value="Remove" />
+        }
+        <br>
       }
-      <hr />
-      </div>
-      <br>
-    }
 
-}
+  }
+  <br />
+  <hr /> *@
+</div>
 
 @* Product Admin Controls *@
 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")) 
