@@ -12,31 +12,31 @@
   <p>Use this page for order form</p>
   <div class="container-form">
     <form id="orderForm" asp-controller="Payment" asp-action="Index" method="Post" class="form-horizontal" role="form">
-      <span style="color:white">@Html.Label("First Name")</span>
+      <span id="createOrder">@Html.Label("First Name")</span>
       <br />
       @Html.TextBoxFor(model => model.FirstName)</span>
       <br /><br />
-      <span style="color:white">@Html.Label("Last Name")</span>
+      <span id="createOrder">@Html.Label("Last Name")</span>
       <br />
       @Html.TextBoxFor(model => model.LastName)
       <br /><br />
-      <span style="color:white">@Html.Label("Street Address")</span>
+      <span id="createOrder">@Html.Label("Street Address")</span>
       <br />
       @Html.TextBoxFor(model => model.Address)
       <br /><br />
-      <span style="color:white">@Html.Label("City")</span>
+      <span id="createOrder">@Html.Label("City")</span>
       <br />
       @Html.TextBoxFor(model => model.City)
       <br /><br />
-      <span style="color:white">@Html.Label("State")</span>
+      <span id="createOrder">@Html.Label("State")</span>
       <br />
       @Html.TextBoxFor(model => model.State)
       <br /><br />
-      <span style="color:white">@Html.Label("Zip Code")</span>
+      <span id="createOrder">@Html.Label("Zip Code")</span>
       <br />
       @Html.TextBoxFor(model => model.ZipCode)
       <br /><br />
-      <span style="color:white">@Html.Label("Phone Number")</span>
+      <span id="createOrder">@Html.Label("Phone Number")</span>
       <br />
       @Html.TextBoxFor(model => model.PhoneNumber)
       <br /><br />

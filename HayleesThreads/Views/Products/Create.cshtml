@@ -5,33 +5,33 @@
 @model HayleesThreads.Models.Product
 
 <div class="container card">
-<h4 style="color:white">Add product to <i>HayleesThreads</i></h4>
+<h4 >Add product to <i>HayleesThreads</i></h4>
 <hr />
 
 
   @using (Html.BeginForm())
   {
-    <span style="color:white">@Html.Label("Product Name")</span>
+    <span id="createProduct"> @Html.Label("Product Name")</span>
     <br />
     @Html.TextBoxFor(model => model.ProductName)
     <br /><br />
-    <span style="color:white">@Html.Label("Product Price")</span>
+    <span id="createProduct">@Html.Label("Product Price")</span>
     <br />
     @Html.TextBoxFor(model => model.ProductPrice)
     <br /><br />
-    <span style="color:white">@Html.Label("Product Description")</span>
+    <span id="createProduct">@Html.Label("Product Description")</span>
     <br />
     @Html.TextBoxFor(model => model.ProductDescription)
     <br /><br />
-    <span style="color:white">@Html.Label("Featured? (true/false)")</span>
+    <span id="createProduct">@Html.Label("Featured? (true/false)")</span>
     <br />
     @Html.TextBoxFor(model => model.Featured)
     <br /><br />
-    <span style="color:white">@Html.Label("Is this apart of Seasonal: All Ears? (true/false)")</span>
+    <span id="createProduct">@Html.Label("Is this apart of Seasonal: All Ears? (true/false)")</span>
     <br />
     @Html.TextBoxFor(model => model.AllEars)
     <br /><br />
-    <span style="color:white">@Html.Label("Product Image")</span>
+    <span id="createProduct">@Html.Label("Product Image")</span>
     <br />
     @Html.TextBoxFor(model => model.ProductImage)
     <br />

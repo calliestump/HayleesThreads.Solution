@@ -89,6 +89,7 @@ namespace HayleesThreads.Controllers
     [HttpPost]
     public ActionResult AddProduct(Category category, int ProductId)
     {
+      
       if (ProductId != 0 )
       {
         _db.CategoryProduct.Add(new CategoryProduct() { ProductId = ProductId, CategoryId = category.CategoryId });

@@ -4,9 +4,12 @@
 
 @using HayleesThreads.Models;
 @model List<HayleesThreads.Models.Category>;
-<div class="categorySelection">
-  <h2><i>HayleesThreads</i> Categories</h2>
+<div style="width:50%" class="container card">
+  <h2><strong>Admin Controls</strong></h2>
   <hr />
+  <br />
+  <h5><strong>Manage Categories</strong></h5>
+  <br />
   @if (Model.Count == 0)
   {
     <br />
@@ -18,14 +21,12 @@
     <br />
     <div class="container card">
       <hr />
-      <h4>@Html.ActionLink($"{category.CategoryName}", "Details", new { id = category.CategoryId })</h4>
+      <h5>@Html.ActionLink($"{category.CategoryName}", "Details", new { id = category.CategoryId })</h5>
       <hr />
     </div>
     <br />
   }
+  <hr /><br />
+  <p>@Html.ActionLink("Add new category", "Create")</p>
   <br />
-  @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")) 
-  {
-    <p>@Html.ActionLink("Add new category", "Create")</p>
-  }
 </div>

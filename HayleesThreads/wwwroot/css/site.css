@@ -1,6 +1,6 @@
 ﻿.card  {
   padding: 1%;
-  background-color: rgb(214, 178, 155);
+  background-color: rgba(224, 191, 171, 0.651);
   border-radius: 10px;
   /* color: rgb(0, 0, 0); */
   width: 5in;
@@ -8,7 +8,6 @@
   border-color: rgb(160, 141, 129);
 }
 nav.navbar {
-
   background-color: rgb(224, 191, 171);
   font-size: large;
   height: 95px;
@@ -120,3 +119,18 @@ nav.navbar2 {
   height:30px;
   width:100%;
 } */
+
+#productImage {
+  border-radius: 8px;
+  border-style: double;
+  border-color: rgb(189, 158, 139);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#createProduct, #createOrder {
+  color: white;
+}
+
+footer {
+  height: 120px;
+}

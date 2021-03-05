@@ -8,19 +8,54 @@
 <h2>Edit Details: @Html.Label("'")<strong>@Html.DisplayFor(model => model.ProductName)</strong>@Html.Label("'")</h2>
 <hr />
 <br />
-@using (Html.BeginForm())
-{
+  @using (Html.BeginForm())
+  {
+    @Html.HiddenFor(model => model.ProductId)
+    
+    <span id="createProduct"> @Html.Label("Product Name")</span>
+    <br />
+    @Html.EditorFor(model => model.ProductName)
+    <br /><br />
+    <span id="createProduct">@Html.Label("Product Price")</span>
+    <br />
+    @Html.EditorFor(model => model.ProductPrice)
+    <br /><br />
+    <span id="createProduct">@Html.Label("Product Description")</span>
+    <br />
+    @Html.EditorFor(model => model.ProductDescription)
+    <br /><br />
+    <span id="createProduct">@Html.Label("Featured")</span>
+    <br />
+    @Html.EditorFor(model => model.Featured)
+    <br /><br />
+    <span id="createProduct">@Html.Label("Seasonal: All Ears")</span>
+    <br />
+    @Html.EditorFor(model => model.AllEars)
+    <br /><br />
+    <span id="createProduct">@Html.Label("Product Image")</span>
+    <br />
+    @Html.EditorFor(model => model.ProductImage)
+    <br />
+    <br /><br />
+    <input type="submit" value="Save" class="btn btn-outline-light" />
+  }
+@* {
   @Html.HiddenFor(model => model.ProductId)
 
-  <h3>@Html.Label("Product Name")</h3>
-  
+  <h4>@Html.Label("Product Name")</h4>
   @Html.EditorFor(model => model.ProductName)
   <br /><br />
+  <h4>@Html.Label("Product Image")</h4>
+  @Html.EditorFor(model => model.ProductImage)
+  <br /><br />
+  <h4>@Html.Label("Product Price")</h4>
+  @Html.EditorFor(model => model.ProductPrice)
+  <br /><br />
   <input type="submit" value="Save" class="btn btn-outline-light" />
-}
-<br />
-<hr />
-<br />
-<h5>@Html.ActionLink("Back to Products list", "Index")</h5>
-<br />
+} *@
+  <br />
+  <hr />
+  <br />
+  <h5>@Html.ActionLink("Back to Products list", "Index")</h5>
+  <br />
 </div>
