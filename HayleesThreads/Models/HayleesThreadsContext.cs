@@ -72,7 +72,7 @@ namespace HayleesThreads.Models
           ProductName = "Tree of Life",
           ProductPrice = 14.99m,
           ProductDescription = "Embroided 'Tree of Life'",
-          ProductImage = "~/img/appa.jpg",
+          ProductImage = "\\img\\appa.jpg",
           Featured = true,
           AllEars = false,
           CategoryId = 1
@@ -84,7 +84,7 @@ namespace HayleesThreads.Models
           ProductName = "Appa",
           ProductPrice = 12.99m,
           ProductDescription = "Hand-Embroided 'Appa' from Avatar: The Last Airbender",
-          ProductImage = "~/img/appa.jpg",
+          ProductImage = "\\img\\appa.jpg",
           Featured = true,
           AllEars = true,
           CategoryId = 2
