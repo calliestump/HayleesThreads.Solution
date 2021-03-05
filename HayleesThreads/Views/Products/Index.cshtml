@@ -19,16 +19,22 @@
 
       <br />
       @* <div class="col-lg-9"> *@
-        <div class="container card">
+        <div id="manProCard" class="container card">
           <span id = "productCard">
-            <br /><hr /><br />
-            <h4>@Html.ActionLink("'" + $"{product.ProductName}" + "'", "Details", new { id = product.ProductId }, new {style="text-decoration:none;"})</h4>
-            <br />
+
+            <br /><hr />
+            <img style="width: 80%;" id="productImage" type="image/jpg" src="@product.ProductImage" />
+            <br /><br />
+            <h4>@Html.Label("'" + product.ProductName + "'")</h4>
+            @* <h4>@Html.ActionLink("'" + $"{product.ProductName}" + "'", "Details", new { id = product.ProductId }, new {style="text-decoration:none;"})</h4> *@
             @* <p>@Html.Label("$ " + (Math.Round(product.ProductPrice)))</p> *@
             @* <p>@Html.Label($"{product.ProductImage}")</p> // Trying to get other properties to show. Price was successfully but image shows difficulty.
             <p>@Html.Label($"{product.ProductPrice}")</p>
             <img type="image/jpg" src="~/img/appa.jpg" /> *@
-            <hr /><br />
+            <hr />
+            <span>@Html.ActionLink("View", "Details", new { id = product.ProductId }, new {style="text-decoration:none;"})</span>
+  
+            <br /><br />
           </span>
         </div>
       @* </div> *@

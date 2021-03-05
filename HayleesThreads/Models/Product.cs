@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace HayleesThreads.Models
 {
@@ -8,12 +9,15 @@ namespace HayleesThreads.Models
     {
       this.JoinTables = new HashSet<CategoryProduct>();
     }
+
     public int ProductId { get; set; }
+
     public string ProductName { get; set; }
-
+  
     public decimal ProductPrice { get; set; }
-    public string ProductImage { get; set; }
 
+    public string ProductImage { get; set; }
+ 
     public string ProductDescription { get; set; }
 
     public bool Featured { get; set; }

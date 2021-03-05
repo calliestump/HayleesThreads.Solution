@@ -3,14 +3,16 @@ using System;
 using HayleesThreads.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HayleesThreads.Migrations
 {
     [DbContext(typeof(HayleesThreadsContext))]
-    partial class HayleesThreadsContextModelSnapshot : ModelSnapshot
+    [Migration("20210305221207_Feeeedtheseeeds")]
+    partial class Feeeedtheseeeds
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -156,11 +158,14 @@ namespace HayleesThreads.Migrations
 
                     b.Property<bool>("Featured");
 
-                    b.Property<string>("ProductDescription");
+                    b.Property<string>("ProductDescription")
+                        .IsRequired();
 
-                    b.Property<string>("ProductImage");
+                    b.Property<string>("ProductImage")
+                        .IsRequired();
 
-                    b.Property<string>("ProductName");
+                    b.Property<string>("ProductName")
+                        .IsRequired();
 
                     b.Property<decimal>("ProductPrice");
 
@@ -171,6 +176,30 @@ namespace HayleesThreads.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            ProductId = 1,
+                            AllEars = false,
+                            CategoryId = 1,
+                            Featured = true,
+                            ProductDescription = "Embroided 'Tree of Life'",
+                            ProductImage = "\\img\\appa.jpg",
+                            ProductName = "Tree of Life",
+                            ProductPrice = 14.99m
+                        },
+                        new
+                        {
+                            ProductId = 2,
+                            AllEars = true,
+                            CategoryId = 2,
+                            Featured = true,
+                            ProductDescription = "Hand-Embroided 'Appa' from Avatar: The Last Airbender",
+                            ProductImage = "\\img\\appa.jpg",
+                            ProductName = "Appa",
+                            ProductPrice = 12.99m
+                        });
                 });
 
             modelBuilder.Entity("HayleesThreads.Models.ShoppingCartItem", b =>

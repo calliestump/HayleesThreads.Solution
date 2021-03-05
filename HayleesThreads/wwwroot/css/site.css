@@ -133,3 +133,11 @@ nav.navbar2 {
 footer {
   height: 120px;
 }
+
+div#manProCard {
+  width: 275px;
+}
+
+div#manProDetails {
+  width: 400px;
+}

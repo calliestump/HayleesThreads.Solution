@@ -11,11 +11,17 @@
   <hr />
   @using (Html.BeginForm())
   {
+    <br />
       <span style="color: white">@Html.LabelFor(m => m.Email)</span><br>
-      @Html.TextBoxFor(m => m.Email)<br><br>
+      @Html.TextBoxFor(m => m.Email)<br />
+      <span asp-validation-for="Email" class="danger"></span>
+      <br /><br />
 
       <span style="color:white">@Html.LabelFor(m => m.Password)</span><br>
-      @Html.PasswordFor(m => m.Password)<br><br>
+      @Html.PasswordFor(m => m.Password)
+      <br>
+      <span asp-validation-for="Password" class="danger"></span>
+      <br><br>
 
       <input type="submit" value="Log in" class="btn btn-outline-light" />
   }

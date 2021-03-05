@@ -3,11 +3,9 @@
 }
 
 @model HayleesThreads.Models.Product;
-
-<div class = "container card">
-
+<br />
+<div id="manProDetails" class = "container card">
   <h2><strong>'@Html.DisplayFor(model => model.ProductName)'</strong> Details</h2>
-  
   <hr />
   <img style="padding: 3%;" id="productImage" type="image/jpg" src="@Model.ProductImage" />
   <br /><br />
@@ -43,7 +41,8 @@
   <br />
   <hr /> *@
 </div>
-
+<br /><br />
+<h5 >@Html.ActionLink("Back to Products list", "Index")</h5>
 @* Product Admin Controls *@
 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")) 
 {
