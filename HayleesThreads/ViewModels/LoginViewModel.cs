@@ -4,9 +4,10 @@ namespace HayleesThreads.ViewModels
 {
   public class LoginViewModel
   {
-    [Required]
+    [Required(ErrorMessage = "Please enter your email")]
     public string Email { get; set; }
-    [Required]
+
+    [Required(ErrorMessage = "Please enter your password")]
     public string Password { get; set; }
   }
 }

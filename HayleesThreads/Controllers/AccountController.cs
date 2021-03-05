@@ -27,6 +27,7 @@ namespace HayleesThreads.Controllers
 
     public IActionResult Register()
     {
+      
       return View();
     }
 

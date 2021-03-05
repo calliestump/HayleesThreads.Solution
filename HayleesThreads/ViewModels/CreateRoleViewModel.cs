@@ -4,7 +4,7 @@ namespace HayleesThreads.ViewModels
 {
   public class CreateRoleViewModel
   {
-    [Required]
+    [Required(ErrorMessage = "Please enter your first name")]
     public string RoleName { get; set; }
   }
 }

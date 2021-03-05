@@ -1,5 +1,5 @@
 ﻿.card  {
-  padding: 1%;
+  padding: 2%;
   background-color: rgba(224, 191, 171, 0.651);
   border-radius: 10px;
   /* color: rgb(0, 0, 0); */
@@ -28,7 +28,7 @@ body {
   background-size: cover ;
 }
 span {
-  color: rgb(192, 53, 53);
+  color: rgb(177, 110, 110);
 }
 h1, h2, h3, h4, h5, h6, p {
   color: white;
@@ -91,7 +91,6 @@ form#orderForm, div#orderForm {
 width: 3in;
 margin: 0 auto; 
 width:250px;
-margin-left: 0px;
 }
 
 #payment {
@@ -121,13 +120,13 @@ nav.navbar2 {
 } */
 
 #productImage {
-  border-radius: 8px;
+  border-radius: 8%;
   border-style: double;
   border-color: rgb(189, 158, 139);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-#createProduct, #createOrder {
+#createProduct, #createOrder, span#editUsers {
   color: white;
 }
 

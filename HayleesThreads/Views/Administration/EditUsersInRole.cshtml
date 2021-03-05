@@ -22,7 +22,7 @@
           @Html.HiddenFor(model => model[i].UserId)
           @Html.HiddenFor(model => model[i].UserName)
           @Html.CheckBoxFor(model => model[i].IsSelected)
-          @Html.DisplayFor(model => model[i].UserName)
+         <span id="editUsers">@Html.DisplayFor(model => model[i].UserName)</span> 
         </div>
       }
     </div>
