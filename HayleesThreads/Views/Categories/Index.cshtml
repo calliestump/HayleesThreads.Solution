@@ -4,7 +4,7 @@
 
 @using HayleesThreads.Models;
 @model List<HayleesThreads.Models.Category>;
-<div style="width:50%" class="container card">
+<div style="width:40%" class="container card">
   <h2><strong>Admin Controls</strong></h2>
   <hr />
   <br />
@@ -19,7 +19,7 @@
   @foreach (Category category in Model)
   {
     <br />
-    <div class="container card">
+    <div style="width:50%"class="container card">
       <hr />
       <h5>@Html.ActionLink($"{category.CategoryName}", "Details", new { id = category.CategoryId })</h5>
       <hr />
