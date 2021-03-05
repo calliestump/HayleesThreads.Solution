@@ -19,15 +19,16 @@
       <br />
       @* <div class="col-lg-9"> *@
         <div class="container card">
-          <hr />
-          <br />
-          <h4>@Html.ActionLink("'" + $"{product.ProductName}" + "'", "Details", new { id = product.ProductId }, new {style="text-decoration:none;"})</h4>
-          <br />
-          <p>@Html.Label("$ " + (Math.Round(product.ProductPrice)))</p>
-          @* <p>@Html.Label($"{product.ProductImage}")</p> // Trying to get other properties to show. Price was successfully but image shows difficulty.
-          <p>@Html.Label($"{product.ProductPrice}")</p>
-          <img type="image/jpg" src="~/img/appa.jpg" /> *@
-          <hr />
+          <span id = "productCard">
+            <br /><hr /><br />
+            <h4>@Html.ActionLink("'" + $"{product.ProductName}" + "'", "Details", new { id = product.ProductId }, new {style="text-decoration:none;"})</h4>
+            <br />
+            @* <p>@Html.Label("$ " + (Math.Round(product.ProductPrice)))</p> *@
+            @* <p>@Html.Label($"{product.ProductImage}")</p> // Trying to get other properties to show. Price was successfully but image shows difficulty.
+            <p>@Html.Label($"{product.ProductPrice}")</p>
+            <img type="image/jpg" src="~/img/appa.jpg" /> *@
+            <hr /><br />
+          </span>
         </div>
       @* </div> *@
     <br />
@@ -35,6 +36,6 @@
 <br />
 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")) 
 {
-  <p>@Html.ActionLink("Add new product", "Create")</p>
+  <p>@Html.ActionLink("Upload new product", "Create")</p>
 }
 </div>

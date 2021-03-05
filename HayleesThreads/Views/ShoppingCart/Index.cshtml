@@ -1,0 +1,45 @@
+@{
+    ViewData["Title"] = "Cart";
+}
+@{
+  Layout = "_Layout";
+}
+<div class = "container card">
+  <h1>Cart</h1>
+  <hr />
+  <p>Use this page for your shopping cart.</p>
+  <hr />
+  <p><a class="nav-link" href= "/Order"> Checkout</a></h4></p>
+</div>
+
+@* @{
+  Layout = "_Layout";
+}
+
+@using HayleesThreads.Models;
+@model List<HayleesThreads.Models.ShoppingCartItem>;
+<div class="categorySelection">
+  <h2>Shopping Cart</h2>
+  <hr />
+  @if (Model.Count == 0)
+  {
+    <br />
+    <h4><span>No products have been added to your cart :(</span></h4>
+  }
+  <p>@Html.ActionLink("Continue Shopping", "Product", "Index")</p>
+  
+  @foreach (ShoppingCartItem shoppingCartItem in Model)
+  {
+    <br />
+    <div class="container card">
+      <h4>@Html.ActionLink($"{shoppingCartItem.Product}", "Details", new { id = shoppingCartItem.ShoppingCartItemId })</h4>
+    </div>
+    <p>@Html.ActionLink("Continue Shopping", "Product", "Index")</p>
+    <br />
+  }
+  <br />
+  @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")) 
+  {
+    <p>@Html.ActionLink("Continue Shopping", "Product", "Index")</p> //Comment out
+  }
+</div> *@

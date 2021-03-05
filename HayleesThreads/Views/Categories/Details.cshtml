@@ -18,18 +18,20 @@ else
     @foreach(var join in Model.JoinTables)
     {
       <div class="container card">
-        <hr />
-        <h3><strong>'@join.Product.ProductName'</strong></h3>
-        @using (Html.BeginForm("DeleteProduct", "Categories"))
-        {
-          @Html.Hidden("joinId", @join.CategoryProductId)
-           @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")) 
+        <span id="productCard">
+          <br /><hr /><br />
+          <h3><strong>'@join.Product.ProductName'</strong></h3>
+          @using (Html.BeginForm("DeleteProduct", "Categories"))
           {
-            <br />
-            <input type="submit" class="btn btn-outline-light" value="Remove" />
+            @Html.Hidden("joinId", @join.CategoryProductId)
+            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")) 
+            {
+              <br />
+              <input type="submit" class="btn btn-outline-light" value="Remove" />
+            }
+            <br /><br /><hr /><br />
           }
-          <hr />
-        }
+        </span>
       </div>
       <br />
     }

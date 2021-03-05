@@ -2,9 +2,10 @@
   padding: 1%;
   background-color: rgb(214, 178, 155);
   border-radius: 10px;
-  color: rgb(0, 0, 0);
+  /* color: rgb(0, 0, 0); */
   width: 5in;
   height: auto;
+  border-color: rgb(160, 141, 129);
 }
 nav.navbar {
   background-color: rgb(214, 178, 155);
@@ -43,6 +44,7 @@ a {
 
 a:hover, .btn:hover{
   color:   rgb(189, 158, 139);
+  text-decoration: none;
 }
 
 HTML.Label {
@@ -86,4 +88,10 @@ form#orderForm, div#orderForm {
 
   #payment {
     margin-left: 35px;
+  }
+  
+  span#productCard {
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.1),
+    0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
+    border-radius: 7px;
   }

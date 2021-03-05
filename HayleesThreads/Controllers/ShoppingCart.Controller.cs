@@ -9,11 +9,11 @@ using Microsoft.AspNetCore.Identity;
 
 namespace HayleesThreads.Controllers
 {
-    public class CartController : Controller
+    public class ShoppingCartController : Controller
     {
       private readonly HayleesThreadsContext _db;
       private readonly UserManager<ApplicationUser> _userManager;
-      public CartController(UserManager<ApplicationUser> userManager, HayleesThreadsContext db)
+      public ShoppingCartController(UserManager<ApplicationUser> userManager, HayleesThreadsContext db)
       {
         _userManager = userManager;
         _db = db;
