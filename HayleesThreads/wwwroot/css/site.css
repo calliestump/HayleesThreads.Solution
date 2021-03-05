@@ -8,7 +8,7 @@
   border-color: rgb(160, 141, 129);
 }
 nav.navbar {
-  background-color: rgb(214, 178, 155);
+
   background-color: rgb(224, 191, 171);
   font-size: large;
   height: 95px;
@@ -18,6 +18,15 @@ body {
   text-align: center;
   background-color:  rgb(236, 208, 191);
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+  /* background-image: url("https://i.pinimg.com/originals/93/59/55/93595567e917a0da7092b00d0888036c.jpg");
+  background-repeat: no-repeat;
+  background-size: cover ; */
+}
+
+.drippy{
+  background-image: url("https://i.pinimg.com/originals/93/59/55/93595567e917a0da7092b00d0888036c.jpg");
+  background-repeat: no-repeat;
+  background-size: cover ;
 }
 span {
   color: rgb(192, 53, 53);
@@ -74,28 +83,40 @@ form#orderForm, div#orderForm {
   margin: 0 auto;
   }
   
-  .form-horizontal {
-    text-align: center;
-    margin: 0 auto;
-  }
-  
-  .form-control {
-  width: 3in;
-  margin: 0 auto; 
-  width:250px;
-  margin-left: 0px;
-  }
+.form-horizontal {
+  text-align: center;
+  margin: 0 auto;
+}
 
-  #payment {
-    margin-left: 35px;
-  }
-  
-  span#productCard {
+.form-control {
+width: 3in;
+margin: 0 auto; 
+width:250px;
+margin-left: 0px;
+}
+
+#payment {
+  margin-left: 35px;
+}
+
+span#productCard {
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.1),
+  0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
+  border-radius: 7px;
+}
+
+nav.navbar2 {
+    /* background-image: url("https://i.pinimg.com/736x/a3/76/1e/a3761e46714c238d797652d97a45f91a.jpg");
+    background-repeat: no-repeat;
+    background-size: cover ; */
     box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.1),
     0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
-    border-radius: 7px;
-  }
+}
 
-  .navbar2 {
-    background-image: url("floral.jpg")
-  }
+/* footer {
+  position:fixed;
+  left:0px;
+  bottom:80px;
+  height:30px;
+  width:100%;
+} */
