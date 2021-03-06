@@ -16,9 +16,8 @@
 
 @foreach (Product product in Model)
 {
-
-      <br />
-      @* <div class="col-lg-9"> *@
+    <div class="col">
+        <br />
         <div id="manProCard" class="container card">
           <span id = "productCard">
             <br /><hr />
@@ -32,12 +31,22 @@
             <img type="image/jpg" src="~/img/appa.jpg" /> *@
             <hr />
             <span>@Html.ActionLink("View", "Details", new { id = product.ProductId }, new {style="text-decoration:none;"})</span>
-  
             <br /><br />
           </span>
         </div>
-      @* </div> *@
-    <br />
+    </div>
+   @* <div class="row align-items-start">
+    <div class="col">
+      One of three columns
+    </div>
+    <div class="col">
+      One of three columns
+    </div>
+    <div class="col">
+      One of three columns
+    </div>
+  </div> *@
+  <br />
 }
 <br />
 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")) 
