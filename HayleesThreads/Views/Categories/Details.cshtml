@@ -21,11 +21,11 @@ else
         <span id="productCard">
           <br /><hr /><br />
           <h3><strong>'@join.Product.ProductName'</strong></h3>
-          @* <img style="padding: 3%;" id="productImage" type="image/jpg" src="@Model.ProductImage" />
+          @* <img style="padding: 3%;" id="productImage" type="image/jpg" src="@join.Product.ProductImage" /> *@
           <br /><br />
-          <h4>@Html.DisplayFor(model => model.ProductDescription)</h4>
+          <h4>@join.Product.ProductDescription</h4>
           <br />
-          <h6><strong>$@Html.DisplayFor(model => model.ProductPrice)</strong></h6> *@
+          <h6><strong>@join.Product.ProductPrice.ToString("#.##")</strong></h6>
           @using (Html.BeginForm("DeleteProduct", "Categories"))
           {
             @Html.Hidden("joinId", @join.CategoryProductId)
