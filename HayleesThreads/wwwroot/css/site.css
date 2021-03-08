@@ -3,7 +3,7 @@
   background-color: rgba(224, 191, 171, 0.651);
   border-radius: 10px;
   /* color: rgb(0, 0, 0); */
-  width: 5in;
+  /* width: 5in; */
   height: auto;
   border-color: rgb(160, 141, 129);
 }
@@ -88,9 +88,9 @@ form#orderForm, div#orderForm {
 }
 
 .form-control {
-width: 3in;
+/* width: 3in; */
 margin: 0 auto; 
-width:250px;
+/* width:250px; */
 }
 
 #payment {

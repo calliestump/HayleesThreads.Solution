@@ -4,7 +4,7 @@
 
 @model HayleesThreads.Models.Category;
 <div class="categoryDetails">
-<h3><strong>@Html.DisplayFor(model => model.CategoryName)</strong> Details</h3>
+<h3><strong>@Html.DisplayFor(model => model.CategoryName)</strong></h3>
 <hr />
 @if(@Model.JoinTables.Count == 0)
 {
@@ -13,19 +13,25 @@
 }
 else
 {
-  <h4>Products within @Html.DisplayFor(model => model.CategoryName):</h4>
+  @* <h4>Products within @Html.DisplayFor(model => model.CategoryName):</h4> *@
     <br />
     @foreach(var join in Model.JoinTables)
     {
-      <div class="container card">
-        <span id="productCard">
-          <br /><hr /><br />
-          <h3><strong>'@join.Product.ProductName'</strong></h3>
-          @* <img style="padding: 3%;" id="productImage" type="image/jpg" src="@join.Product.ProductImage" /> *@
-          <br /><br />
-          <h4>@join.Product.ProductDescription</h4>
+      <div id="manProCard" class="container card">
+        <span style="padding: 1.75%"id="productCard">
           <br />
-          <h6><strong>@join.Product.ProductPrice.ToString("#.##")</strong></h6>
+          <h4><strong>'@join.Product.ProductName'</strong></h4>
+          <hr />
+          <img style="width: 80%;" id="productImage" type="image/jpg" src="@join.Product.ProductImage" />
+          <br /><br />
+          <br />
+          <h5>@join.Product.ProductDescription</h5>
+          <br />
+          <h6><strong>$@join.Product.ProductPrice.ToString("#.##")</strong></h6>
+          <hr />
+          <span>@Html.ActionLink("View", "Details", "Products", new { id = @join.Product.ProductId }, new {style="text-decoration:none;"})</span>
+          <br /><br />
+        </span>
           @using (Html.BeginForm("DeleteProduct", "Categories"))
           {
             @Html.Hidden("joinId", @join.CategoryProductId)
@@ -33,10 +39,9 @@ else
             {
               <br />
               <input type="submit" class="btn btn-outline-light" value="Remove" />
+            <br />
             }
-            <br /><br /><hr /><br />
           }
-        </span>
       </div>
       <br />
     }

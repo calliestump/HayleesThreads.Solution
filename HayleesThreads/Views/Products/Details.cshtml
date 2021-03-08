@@ -5,17 +5,20 @@
 @model HayleesThreads.Models.Product;
 <br />
 <div id="manProDetails" class = "container card">
-  <h2><strong>'@Html.DisplayFor(model => model.ProductName)'</strong> Details</h2>
+  <span id="productCard">
+  <br />
+  <h2><strong>'@Html.DisplayFor(model => model.ProductName)'</strong></h2>
   <hr />
-  <img style="padding: 3%;" id="productImage" type="image/jpg" src="@Model.ProductImage" />
+  <img style="width: 80%;" id="productImage" type="image/jpg" src="@Model.ProductImage" />
   <br /><br />
-  <h4>@Html.DisplayFor(model => model.ProductDescription)</h4>
+  <h5>@Html.DisplayFor(model => model.ProductDescription)</h5>
   <br />
   <h6><strong>$@Html.DisplayFor(model => model.ProductPrice)</strong></h6>
   <hr />
 
   <a href="#"><i class="fa fa-cart">Add to cart</i></a>
-  <br />
+  <br /><br />
+  </span>
   @* @if(@Model.JoinTables.Count == 0)
   {
     <br />
@@ -42,7 +45,7 @@
   <hr /> *@
 </div>
 <br /><br />
-<h5 >@Html.ActionLink("Back to Products list", "Index")</h5>
+<h5 >@Html.ActionLink("Back to Products", "Index")</h5>
 @* Product Admin Controls *@
 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")) 
 {
@@ -59,7 +62,7 @@
     <h5>@Html.ActionLink("Assign this product to a category", "AddCategory", new { id = Model.ProductId })</h5>
     <br />
     <hr />
-    <h5>@Html.ActionLink("Back to Products list", "Index")</h5>
+    <h5>@Html.ActionLink("Back to Products", "Index")</h5>
     <br />
   </div>
 }
