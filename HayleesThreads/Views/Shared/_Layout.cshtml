@@ -102,50 +102,49 @@
         
 
                             
-                                @if (User.Identity.IsAuthenticated)
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li class="nav-item">
+                                @using (Html.BeginForm("Index", "Account"))
                                 {
-                                    <li class="nav-item">
-                                    @using (Html.BeginForm("Index", "Account"))
+                                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                                     {
-                                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-                                        {
-                                            
                                         
-                                            @* <input type="submit" class="nav-item btn btn-link text-white" style="width:auto" value="Logout @User.Identity.Name">  *@
-                                            <a type="submit" class="nav-link text-black" href="/account/index">Logout:Admin</a>
-                                        }
-                                        else
-                                        {
-                                            @* <input type="submit" class="nav-item btn btn-link text-white" style="width:auto" value="Logout @User.Identity.Name"> *@
-                                            <a type="submit" class="nav-link text-black" href="/account/index">Logout:@User.Identity.Name</a>
-                                        }
+                                    
+                                        @* <input type="submit" class="nav-item btn btn-link text-white" style="width:auto" value="Logout @User.Identity.Name">  *@
+                                        <a type="submit" class="nav-link text-black" href="/account/index">Logout:Admin</a>
+                                        
                                     }
-                                    </li>
+                                    else
+                                    {
+                                        @* <input type="submit" class="nav-item btn btn-link text-white" style="width:auto" value="Logout @User.Identity.Name"> *@
+                                        <a type="submit" class="nav-link text-black" href="/account/index">Logout:@User.Identity.Name</a>
+                                    }
                                 }
-                                else
-                                {
-                                <li class="nav-item">
-                                    <a class="nav-link text-black" id="registerNav" href="/account/register">Register</a>
                                 </li>
-                                <li class="nav-item">
-                                    <p><a class="nav-link"></a></p>
-                                </li>
-                                <li class="nav-item">
-                                    <p><a class="nav-link"></a></p>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-black" id="loginNav" href="/account/login">Login</a>
-                                </li>
-                                }
-                                <li class="nav-item">
-                                    <p><a class="nav-link"></a></p>
-                                </li>
-                                <li class="nav-item">
-                                    <p><a class="nav-link"></a></p>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href= "/ShoppingCart"> Cart</a></h4>
-                                </li>
+                            }
+                            else
+                            {
+                            <li class="nav-item">
+                                <a class="nav-link text-black" id="registerNav" href="/account/register">Register</a>
+                            </li>
+                            <li class="nav-item">
+                                <p><a class="nav-link"></a></p>
+                            </li>
+                            <li class="nav-item">
+                                <p><a class="nav-link"></a></p>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-black" id="loginNav" href="/account/login">Login</a>
+                            </li>
+                            }
+                            <li class="nav-item">
+                                <p><a class="nav-link"></a></p>
+                            </li>
+                            <li class="nav-item">
+                                <p><a class="nav-link"></a></p>
+                            </li>
+                           
 
                                 
                                 @* <li>
@@ -177,6 +176,9 @@
                                 </div>
                             
                             </li> *@
+                              <li class="nav-item">
+                                <a class="nav-link" href= "/ShoppingCart"> Cart</a></h4>
+                            </li>
                         </ul>
                         
                     </div>

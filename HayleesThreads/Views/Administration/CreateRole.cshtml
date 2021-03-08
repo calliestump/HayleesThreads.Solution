@@ -15,7 +15,7 @@
           {
             <div class="card-body">
               <div class="form-group">
-                @Html.Label("Role Name")
+                <strong style="color:rgb(133, 115, 96)">@Html.Label("Role Name")</strong>
                 @Html.TextBoxFor(user=> user.RoleName, new { @class="form-control"})
               </div> 
               @Html.ValidationSummary(false,"",new { @class = "text-danger"})

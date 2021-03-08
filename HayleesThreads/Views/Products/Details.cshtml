@@ -19,33 +19,10 @@
   <a href="#"><i class="fa fa-cart">Add to cart</i></a>
   <br /><br />
   </span>
-  @* @if(@Model.JoinTables.Count == 0)
-  {
-    <br />
-    <h6><span>This product is not assigned to any categories :(</span><br /></h6>
-  }
-  else
-  {
-  
-    <h4>@Html.DisplayFor(model => model.ProductName) is assigned to:</h4>
-    
-      @foreach(var join in Model.JoinTables)
-      {
-        <p><strong>@join.Category.CategoryName</strong></p>
-        @using (Html.BeginForm("DeleteCategory", "Products"))
-        {
-          @Html.Hidden("joinId", @join.CategoryProductId) <br />
-          <input type="submit" class="btn btn-outline-light" value="Remove" />
-        }
-        <br>
-      }
-
-  }
-  <br />
-  <hr /> *@
 </div>
 <br /><br />
 <h5 >@Html.ActionLink("Back to Products", "Index")</h5>
+
 @* Product Admin Controls *@
 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")) 
 {

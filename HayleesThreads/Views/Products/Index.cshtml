@@ -5,18 +5,16 @@
 @using HayleesThreads.Models
 @model List<HayleesThreads.Models.Product>;
 <div class="productCollection">
-@* <img style="width:200px;height:200px;" src="~/img/hanger.png" /> *@
 <h2 style="color: white"><i>HayleesThreads</i> Collection</h2>
 
 <hr />
 @if (Model.Count == 0)
 {
-  <h4><span>No products have been added to HayleesThreads :(</span></h4> // This will not show on views. Unsure if it is a syntax or VS error.
+  <h4><span>No products have been added to HayleesThreads :(</span></h4> 
 }
 
 @foreach (Product product in Model)
 {
-    <div class="col">
         <br />
         <div id="manProCard" class="container card">
           <span id = "productCard">
@@ -24,18 +22,13 @@
             <img style="width: 80%;" id="productImage" type="image/jpg" src="@product.ProductImage" />
             <br /><br />
             <h4>@Html.Label("'" + product.ProductName + "'")</h4>
-            @* <h4>@Html.ActionLink("'" + $"{product.ProductName}" + "'", "Details", new { id = product.ProductId }, new {style="text-decoration:none;"})</h4> *@
-            @* <p>@Html.Label("$ " + (Math.Round(product.ProductPrice)))</p> *@
-            @* <p>@Html.Label($"{product.ProductImage}")</p> // Trying to get other properties to show. Price was successfully but image shows difficulty.
-            <p>@Html.Label($"{product.ProductPrice}")</p>
-            <img type="image/jpg" src="~/img/appa.jpg" /> *@
             <hr />
             <span>@Html.ActionLink("View", "Details", new { id = product.ProductId }, new {style="text-decoration:none;"})</span>
             <br /><br />
           </span>
         </div>
-    </div>
-   @* <div class="row align-items-start">
+  
+  @* <div class="row align-items-start">
     <div class="col">
       One of three columns
     </div>
@@ -48,9 +41,20 @@
   </div> *@
   <br />
 }
-<br />
+
+
+</div>@* Product Admin Controls *@
 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")) 
 {
-  <p>@Html.ActionLink("Upload new product", "Create")</p>
+  <br />
+  <hr />
+  <br />
+  <div class="container card">
+    <br />
+    <h1><strong>Admin Controls</strong></h1>
+    <hr />
+    <br />
+    <p>@Html.ActionLink("Upload new product", "Create")</p>
+    <br />
+  </div>
 }
-</div>
