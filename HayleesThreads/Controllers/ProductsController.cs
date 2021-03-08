@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using System;
 
 namespace HayleesThreads.Controllers
 {
@@ -26,6 +27,12 @@ namespace HayleesThreads.Controllers
       List<Product> model = _db.Products.ToList();
       return View(model);
     }
+
+    // [HttpGet("/NewsLetter")]
+    // public ActionResult NewsLetter()
+    // {
+    //   return View();
+    // }
     public ActionResult Details(int id)
     {
       var thisProduct = _db.Products
@@ -106,5 +113,6 @@ namespace HayleesThreads.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
   }
 } 

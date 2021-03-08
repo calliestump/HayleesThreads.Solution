@@ -24,11 +24,6 @@
             <nav class="navbar navbar-expand-sm border-bottom box-shadow mb-3">
                 <div class="container d-flex justify-content-center">
                     <a class="navbar-brand" href="/"><i>HayleesThreads</i></a>
-                    @* <img style="width:100px;height:100px;" src="~/img/hanger.png" /> *@
-                    @* <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button> *@
                     <div >
                         <ul class="navbar-nav">
                             
@@ -109,15 +104,11 @@
                                 {
                                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                                     {
-                                        
-                                    
-                                        @* <input type="submit" class="nav-item btn btn-link text-white" style="width:auto" value="Logout @User.Identity.Name">  *@
                                         <a type="submit" class="nav-link text-black" href="/account/index">Logout:Admin</a>
                                         
                                     }
                                     else
                                     {
-                                        @* <input type="submit" class="nav-item btn btn-link text-white" style="width:auto" value="Logout @User.Identity.Name"> *@
                                         <a type="submit" class="nav-link text-black" href="/account/index">Logout:@User.Identity.Name</a>
                                     }
                                 }
@@ -144,38 +135,6 @@
                             <li class="nav-item">
                                 <p><a class="nav-link"></a></p>
                             </li>
-                           
-
-                                
-                                @* <li>
-                                    <ul class="nav">
-                                        <li class="dropdown">
-                                            <a style="text-decoration: none" data-toggle="dropdown" class="dropdown-toggle" href= "/Cart"><b class="caret"></b></a>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="nav-link" style="color:grey" href="#">EN</a></li>
-                                                <li><a class="nav-link" style="color:grey" href="#">ID</a></li>
-                                                <li><a class="nav-link" style="color:grey" href="#">FR</a></li>
-                                            
-                                                <hr />
-                                                <li><a class="nav-link" style="color:grey" href="#">IT</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li> *@
-                            @*                          
-
-                            <li>
-                
-                                <div class="dropdown">
-                                    <button class="dropbtn">Dropdown</button>
-                                    <div class="dropdown-content">
-                                        <a href="#">Link 1</a>
-                                        <a href="#">Link 2</a>
-                                        <a href="#">Link 3</a>
-                                    </div>
-                                </div>
-                            
-                            </li> *@
                               <li class="nav-item">
                                 <a class="nav-link" href= "/ShoppingCart"> Cart</a></h4>
                             </li>
@@ -209,17 +168,9 @@
                         </ul>
                         
                 </div>
-                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")) 
-                {
-                    <a class="nav-link" href= "/Categories">Manage Categories</a>
-                }
+               
                   <img id="hanger" style="width:80px;height:100px;" src="~/img/hanger.png" />
             </nav>
-            @* <nav class= "navbar2 navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3">
-                    <span class="nav-cat">
-                    <p><a  class="nav-link text-black" href="/Categories/Details/1">Hoodies</a> | <a  class="nav-link text-black" href="/Categories/Details/2">Crews</a></p> 
-                    </span>
-            </nav> *@
             
         </header>
         <br />
