@@ -10,25 +10,26 @@
 <h3><strong>Register</strong></h3>
 
 <hr />
-@using (Html.BeginForm("Register", "Account", FormMethod.Post))
-{
-    <span style="color: white">@Html.LabelFor(user => user.Email)</span><br>
-    @Html.TextBoxFor(user=> user.Email)<br>
-    <span asp-validation-for="Email" class="danger"></span>
-    <br><br>
 
-    <span style="color: white">@Html.LabelFor(user=> user.Password)</span><br>
-    @Html.PasswordFor(user=> user.Password)<br>
-    <span asp-validation-for="Password" class="danger"></span>
-    <br><br>
+  @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+  {
+      <span style="color: white">@Html.LabelFor(user => user.Email)</span><br>
+      @Html.TextBoxFor(user=> user.Email)<br>
+      <span asp-validation-for="Email" class="danger"></span>
+      <br><br>
 
-    <span style="color: white">@Html.LabelFor(user=> user.ConfirmPassword)</span><br>
-    @Html.PasswordFor(user=> user.ConfirmPassword)<br>
-    <span asp-validation-for="ConfirmPassword" class="danger"></span>
-    <br><br>
+      <span style="color: white">@Html.LabelFor(user=> user.Password)</span><br>
+      @Html.PasswordFor(user=> user.Password)<br>
+      <span asp-validation-for="Password" class="danger"></span>
+      <br><br>
 
-    <input type="submit" class="btn btn-outline-light" value="Register" />
-}
+      <span style="color: white">@Html.LabelFor(user=> user.ConfirmPassword)</span><br>
+      @Html.PasswordFor(user=> user.ConfirmPassword)<br>
+      <span asp-validation-for="ConfirmPassword" class="danger"></span>
+      <br><br>
+
+      <input type="submit" class="btn btn-outline-light" value="Register" />
+  }
 <br /><br />
 <p style="color:grey">Already have an account?</p>
 <h5>@Html.ActionLink("Log in", "Login")</h5>
