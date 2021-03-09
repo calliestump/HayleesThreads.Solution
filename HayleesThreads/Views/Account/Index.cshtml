@@ -2,28 +2,27 @@
   Layout = "_Layout";
 }
 
-<div class="container card">
-<br />
-@if (User.Identity.IsAuthenticated)
-{
-
-    <h5 style="color:white">Are you sure you want to sign out, <strong>@User.Identity.Name</strong>?</h5>
+<div style="width: 5in" class="container card">
     <br />
-    @using (Html.BeginForm("LogOff", "Account"))
+    @if (User.Identity.IsAuthenticated)
     {
-        <input type="submit" class="btn btn-outline-light" value="Log me out!" />
-    }
-    <br />
-}
-else
-{
-    <h4 style="color:white">You have successfully signed out.</h4>
-    <hr />
-   
-    <h5>@Html.ActionLink("Log in", "Login")</h5><br />
-    <h5>@Html.ActionLink("Register", "Register")</h5>
-    <hr />
-    <h5>@Html.ActionLink("Continue as Guest", "Index", "Home")</h5>
-}
 
+        <h5 style="color:white">Are you sure you want to sign out, <strong>@User.Identity.Name</strong>?</h5>
+        <br />
+        @using (Html.BeginForm("LogOff", "Account"))
+        {
+            <input type="submit" class="btn btn-outline-light" value="Log me out!" />
+        }
+        <br />
+    }
+    else
+    {
+        <h4 style="color:white">You have successfully signed out.</h4>
+        <hr />
+    
+        <h5>@Html.ActionLink("Log in", "Login")</h5><br />
+        <h5>@Html.ActionLink("Register", "Register")</h5>
+        <hr />
+        <h5>@Html.ActionLink("Continue as Guest", "Index", "Home")</h5>
+    }
 </div>

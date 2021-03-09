@@ -4,7 +4,7 @@
 
 @using HayleesThreads.Models
 @model List<HayleesThreads.Models.Product>;
-<div class="productCollection">
+
 <h2 style="color: white"><i>HayleesThreads</i> Collection</h2>
 
 <hr />
@@ -12,19 +12,56 @@
 {
   <h4><span>No products have been added to HayleesThreads :(</span></h4> 
 }
+<br />
+<div class="grid">
+
+  @foreach (Product product in Model)
+  {
+    <div id="manProCard" class="container card">
+      <span id="productCard">
+        <div class="card-header">
+          <h4 style="margin-top: 15px">@Html.Label("'" + product.ProductName + "'")</h4>
+        </div>
+          <br />
+          <img style="width: 80%;" id="productImage" type="image/jpg" src="@product.ProductImage" />
+          <br /><br />
+          <div style="padding: 24px;" class="card-footer">
+            <span>@Html.ActionLink("View", "Details", new { id = product.ProductId }, new {style="text-decoration:none;"})</span>
+            <br />
+          </div>
+      </span>
+    </div>
+  }
+</div>
+
+@* 
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); // 5 even columns
+  grid-template-columns: 1fr 1fr 3fr 1fr 1fr; // 5 columns, middle is 3x larger
+  gap: 20p;
+}
+ *@
 
 @foreach (Product product in Model)
 {
         <br />
         <div id="manProCard" class="container card">
           <span id = "productCard">
-            <br /><hr />
+            @* <br /><hr /> *@
+            <div class="card-header">
+              <h4 style="margin-top: 15px">@Html.Label("'" + product.ProductName + "'")</h4>
+            </div>
+            <br />
             <img style="width: 80%;" id="productImage" type="image/jpg" src="@product.ProductImage" />
             <br /><br />
-            <h4>@Html.Label("'" + product.ProductName + "'")</h4>
-            <hr />
-            <span>@Html.ActionLink("View", "Details", new { id = product.ProductId }, new {style="text-decoration:none;"})</span>
-            <br /><br />
+            @* <h4>@Html.Label("'" + product.ProductName + "'")</h4> *@
+          
+            <div style="padding: 24px;" class="card-footer">
+              <span>@Html.ActionLink("View", "Details", new { id = product.ProductId }, new {style="text-decoration:none;"})</span>
+              <br />
+            </div>
+          
           </span>
         </div>
   
@@ -49,13 +86,15 @@
   <br />
   <hr />
   <br />
-  <div class="container card">
-    <br />
-    <h1><strong>Admin Controls</strong></h1>
-    <hr />
-    <br />
-    <p>@Html.ActionLink("Upload new product", "Create")</p>
-    <p>@Html.ActionLink("Manage Categories", "Index", "Categories")</p>
-    <br />
+  <div style="width: 5in" class="container card">
+    <span id="productCard">
+      <br />
+      <h1><strong>Admin Controls</strong></h1>
+      <hr />
+      <br />
+      <p>@Html.ActionLink("Upload new product", "Create")</p>
+      <p>@Html.ActionLink("Manage Categories", "Index", "Categories")</p>
+      <br />
+    </span>
   </div>
 }

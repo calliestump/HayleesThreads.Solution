@@ -17,19 +17,20 @@ else
     @foreach(var join in Model.JoinTables)
     {
       <div id="manProCard" class="container card">
-        <span style="padding: 1.75%"id="productCard">
+        <span id="productCard">
+          <div class="card-header">
+            <h4><strong>'@join.Product.ProductName'</strong></h4>
+          </div>
           <br />
-          <h4><strong>'@join.Product.ProductName'</strong></h4>
-          <hr />
           <img style="width: 80%;" id="productImage" type="image/jpg" src="@join.Product.ProductImage" />
           <br /><br />
+       
+          <h5 style="padding: 2%">@join.Product.ProductDescription</h5>
           <br />
-          <h5>@join.Product.ProductDescription</h5>
-          <br />
-          <h6><strong>$@join.Product.ProductPrice.ToString("#.##")</strong></h6>
-          <hr />
-          <span>@Html.ActionLink("View", "Details", "Products", new { id = @join.Product.ProductId }, new {style="text-decoration:none;"})</span>
-          <br /><br />
+          <h6><strong>$@join.Product.ProductPrice.ToString("#.##")</strong></h6><br />
+          <div style="padding: 20px;" class="card-footer">
+            <span>@Html.ActionLink("View", "Details", "Products", new { id = @join.Product.ProductId }, new {style="text-decoration:none;"})</span>
+          </div>
         </span>
           @using (Html.BeginForm("DeleteProduct", "Categories"))
           {
@@ -51,18 +52,20 @@ else
   <br />
   <hr />
   <br />
-  <div class="container card">
-    <br />
-    <h1><strong>Admin Controls</strong></h1>
-    <hr />
-    <br />
-    <p>@Html.ActionLink("Edit Category", "Edit", new { id = Model.CategoryId })</p>
-    <p>@Html.ActionLink("Delete Category", "Delete", new { id = Model.CategoryId })</p>
-    <p>@Html.ActionLink("Assign a product to this category", "AddProduct", new { id = Model.CategoryId })</p>
-    <br />
-    <hr />
-    <p>@Html.ActionLink("Back to Categories list", "Index")</p>
-    <br />
+  <div style="width: 5in" class="container card">
+    <span id="productCard">
+      <br />
+      <h1><strong>Admin Controls</strong></h1>
+      <hr />
+      <br />
+      <p>@Html.ActionLink("Edit Category", "Edit", new { id = Model.CategoryId })</p>
+      <p>@Html.ActionLink("Delete Category", "Delete", new { id = Model.CategoryId })</p>
+      <p>@Html.ActionLink("Assign a product to this category", "AddProduct", new { id = Model.CategoryId })</p>
+      <br />
+      <hr />
+      <p>@Html.ActionLink("Back to Categories list", "Index")</p>
+      <br />
+    </span>
   </div>
 }
 

@@ -5,27 +5,29 @@
 @using HayleesThreads.ViewModels
 
 @model LoginViewModel
-<div class="container card">
+<div style="width: 5in" class="container card">
   <br />
   <h3><strong>Log in</strong></h3>
-  <hr />
-  @using (Html.BeginForm())
-  {
-    <br />
-      <span style="color: white">@Html.LabelFor(m => m.Email)</span><br>
-      @Html.TextBoxFor(m => m.Email)<br />
-      <span asp-validation-for="Email" class="danger"></span>
-      <br /><br />
+  <hr /><br />
+  <div id="orderForm">
+    @using (Html.BeginForm())
+    {
+      <br />
+        <span style="color: white">@Html.LabelFor(m => m.Email)</span><br>
+        @Html.TextBoxFor(m => m.Email)<br />
+        <span asp-validation-for="Email" class="danger"></span>
+        <br /><br />
 
-      <span style="color:white">@Html.LabelFor(m => m.Password)</span><br>
-      @Html.PasswordFor(m => m.Password)
-      <br>
-      <span asp-validation-for="Password" class="danger"></span>
-      <br><br>
+        <span style="color:white">@Html.LabelFor(m => m.Password)</span><br>
+        @Html.PasswordFor(m => m.Password)
+        <br>
+        <span asp-validation-for="Password" class="danger"></span>
+        <br><br>
 
-      <input type="submit" value="Log in" class="btn btn-outline-light" />
-  }
-  <br /><br />
+        <input type="submit" value="Log in" class="btn btn-outline-light" />
+    }
+  </div>
+  <br />
   <p style="color:grey">Don't have an account?</p>
   <h5>@Html.ActionLink("Register", "Register")</h5>
   <hr />

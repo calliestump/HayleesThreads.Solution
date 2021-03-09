@@ -4,20 +4,23 @@
 
 @model HayleesThreads.Models.Product;
 <br />
-<div id="manProDetails" class = "container card">
-  <span id="productCard">
-  <br />
-  <h2><strong>'@Html.DisplayFor(model => model.ProductName)'</strong></h2>
-  <hr />
+<div id="manProDetails" class= "container card">
+  <span style="padding: 10px;" id="productCard">
+
+  <div class="card-header">
+    <h2><strong>'@Html.DisplayFor(model => model.ProductName)'</strong></h2>
+  </div><br />
+
   <img style="width: 80%;" id="productImage" type="image/jpg" src="@Model.ProductImage" />
   <br /><br />
   <h5>@Html.DisplayFor(model => model.ProductDescription)</h5>
   <br />
   <h6><strong>$@Html.DisplayFor(model => model.ProductPrice)</strong></h6>
-  <hr />
+  <br />
+  <div style="padding: 24px;" class="card-footer">
+    <a href="#"><i class="fa fa-cart">Add to cart</i></a>
+  </div>
 
-  <a href="#"><i class="fa fa-cart">Add to cart</i></a>
-  <br /><br />
   </span>
 </div>
 <br /><br />
@@ -29,7 +32,7 @@
   <br />
   <hr />
   <br />
-  <div class="container card">
+  <div style="width: 5in" class="container card">
     <br />
     <h1><strong>Admin Controls</strong></h1>
     <hr />

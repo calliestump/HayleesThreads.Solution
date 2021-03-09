@@ -4,46 +4,50 @@
 
 @model HayleesThreads.Models.Product
 
-<div class="container card">
+<div style="width: 5in" class="container card">
 <h4 >Add product to <i>HayleesThreads</i></h4>
 <hr />
-
-
-  @using (Html.BeginForm())
-  {
-    <span id="createProduct"> @Html.Label("Product Name")</span>
+<br />
+  <span id="productCard">
     <br />
-    @Html.TextBoxFor(model => model.ProductName)
-    <span asp-validation-for="ProductName" class="danger"></span>
-    <br /><br />
-    <span id="createProduct">@Html.Label("Product Price")</span>
-    <br />
-    @Html.TextBoxFor(model => model.ProductPrice)
-    <span asp-validation-for="ProductPrice" class="danger"></span>
-    <br /><br />
-    <span id="createProduct">@Html.Label("Product Description")</span>
-    <br />
-    @Html.TextBoxFor(model => model.ProductDescription)
-    <span asp-validation-for="ProductDescription" class="danger"></span>
-    <br /><br />
-    <span id="createProduct">@Html.Label("Featured? (true/false)")</span>
-    <br />
-    @Html.TextBoxFor(model => model.Featured)
-    <span asp-validation-for="Featured" class="danger"></span>
-    <br /><br />
-    <span id="createProduct">@Html.Label("Is this apart of Seasonal: All Ears? (true/false)")</span>
-    <br />
-    @Html.TextBoxFor(model => model.AllEars)
-    <span asp-validation-for="AllEars" class="danger"></span>
-    <br /><br />
-    <span id="createProduct">@Html.Label("Product Image")</span>
-    <br />
-    @Html.TextBoxFor(model => model.ProductImage)
-    <span asp-validation-for="ProductImage" class="danger"></span>
-    <br />
-    <br /><br />
-    <input class="btn btn-outline-light" type="submit" type="button" value="Upload new Product!" />
-  }
+    @using (Html.BeginForm())
+    {
+      <span id="createProduct"> @Html.Label("Product Name")</span>
+      <br />
+      @Html.TextBoxFor(model => model.ProductName)
+      <span asp-validation-for="ProductName" class="danger"></span>
+      <br /><br />
+      <span id="createProduct">@Html.Label("Product Price")</span>
+      <br />
+      @Html.TextBoxFor(model => model.ProductPrice)
+      <span asp-validation-for="ProductPrice" class="danger"></span>
+      <br /><br />
+      <span id="createProduct">@Html.Label("Product Description")</span>
+      <br />
+      @Html.TextBoxFor(model => model.ProductDescription)
+      <span asp-validation-for="ProductDescription" class="danger"></span>
+      <br /><br />
+      <span id="createProduct">@Html.Label("Featured? (true/false)")</span>
+      <br />
+      @Html.TextBoxFor(model => model.Featured)
+      <span asp-validation-for="Featured" class="danger"></span>
+      <br /><br />
+      <span id="createProduct">@Html.Label("Is this apart of Seasonal: All Ears? (true/false)")</span>
+      <br />
+      @Html.TextBoxFor(model => model.AllEars)
+      <span asp-validation-for="AllEars" class="danger"></span>
+      <br /><br />
+      <span id="createProduct">@Html.Label("Product Image")</span>
+      <br />
+      @Html.TextBoxFor(model => model.ProductImage)
+      <span asp-validation-for="ProductImage" class="danger"></span>
+      <br />
+      <br /><br />
+      <input class="btn btn-outline-light" type="submit" type="button" value="Upload new Product!" />
+    }
+    <br /> 
+  </div>
+ 
 
 <br />
 <hr />

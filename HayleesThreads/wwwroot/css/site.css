@@ -2,7 +2,7 @@
   padding: 2%;
   background-color: rgba(224, 191, 171, 0.651);
   border-radius: 10px;
-  /* width: 5in; */
+  width: 5in;
   height: auto;
   border-color: rgb(160, 141, 129);
 }
@@ -126,4 +126,11 @@ div#manProCard {
 
 div#manProDetails {
   width: 400px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  /* grid-template-columns: 1fr 1fr 3fr 1fr 1fr;  */
+  gap: 20px;
 }

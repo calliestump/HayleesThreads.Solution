@@ -15,21 +15,23 @@
   <hr />
   foreach(var role in Model)
   {
-    <div class="container card">
-      <div class="card-header">
-        <p style="color:rgb(133, 115, 96)"><strong>Role Id:</strong><br /><span style="color:white">@role.Id</span></p>
-      </div>
-      <div class="card-body">
-        <h3 class="card-title"><strong>@role.Name</strong></h3>
-      </div>
-      <div class="card-footer">
-        @using (Html.BeginForm("DeleteRole", "Administration"))
-        {
-          @Html.ActionLink("Edit", "EditRole", "Administration", new { id = role.Id }, new { @class="btn btn-outline-light" })
-          @Html.Hidden("id", @role.Id)
-          <input type="submit" value="Delete" class="btn btn-outline-light" />
-        }
+    <div style="width: 5in" class="container card">
+      <span id="productCard">
+        <div class="card-header">
+          <p style="color:rgb(133, 115, 96)"><strong>Role Id:</strong><br /><span style="color:white">@role.Id</span></p>
         </div>
+        <div class="card-body">
+          <h3 class="card-title"><strong>@role.Name</strong></h3>
+        </div>
+        <div class="card-footer">
+          @using (Html.BeginForm("DeleteRole", "Administration"))
+          {
+            @Html.ActionLink("Edit", "EditRole", "Administration", new { id = role.Id }, new { @class="btn btn-outline-light" })
+            @Html.Hidden("id", @role.Id)
+            <input type="submit" value="Delete" class="btn btn-outline-light" />
+          }
+          </div>
+      </span>
     </div>
     <hr />
   }
