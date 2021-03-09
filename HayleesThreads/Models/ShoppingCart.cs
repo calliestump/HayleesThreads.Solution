@@ -12,10 +12,11 @@ namespace HayleesThreads.Models
   {
     private readonly HayleesThreadsContext _db;
     public string ShoppingCartId { get; set; }
-    public List<ShoppingCartItem> ShoppingCartItems { get; set; }
+    public List<ShoppingCartProduct> ShoppingCartProducts { get; set; }
     public ShoppingCart(HayleesThreadsContext db)
     {
       _db = db;
+      this.JoinTables2 = new HashSet<ShoppingCartProduct>();
     }
 
     public static ShoppingCart GetShoppingCart(IServiceProvider services)
@@ -31,22 +32,22 @@ namespace HayleesThreads.Models
 
     public void AddToShoppingCart(Product product, int quantity)
     {
-      var shoppingCartItem = _db.ShoppingCartItems.SingleOrDefault(
+      var shoppingCartProduct = _db.ShoppingCartProducts.SingleOrDefault(
         i => i.Product.ProductId == product.ProductId && i.ShoppingCartId == ShoppingCartId);
 
-      if(shoppingCartItem == null)
+      if(shoppingCartProduct == null)
       {
-        shoppingCartItem = new ShoppingCartItem
+        shoppingCartProduct = new ShoppingCartProduct
         {
           ShoppingCartId = ShoppingCartId,
-          Product = product,
+          ProductId = product.ProductId,
           Quantity = quantity
         };
-        _db.ShoppingCartItems.Add(shoppingCartItem);
+        _db.ShoppingCartProducts.Add(shoppingCartProduct);
       }
       else
       {
-        shoppingCartItem.Quantity++;
+        shoppingCartProduct.Quantity++;
       }
 
       _db.SaveChanges();
@@ -54,21 +55,21 @@ namespace HayleesThreads.Models
 
     public int RemoveFromShoppingCart(Product product)
     {
-      var shoppingCartItem = _db.ShoppingCartItems.SingleOrDefault(
+      var shoppingCartProduct = _db.ShoppingCartProducts.SingleOrDefault(
         i => i.Product.ProductId == product.ProductId && i.ShoppingCartId == ShoppingCartId);
 
       var quantity = 0;
 
-      if(shoppingCartItem != null)
+      if(shoppingCartProduct != null)
       {
-        if(shoppingCartItem.Quantity > 1)
+        if(shoppingCartProduct.Quantity > 1)
         {
-          shoppingCartItem.Quantity--;
-          quantity = shoppingCartItem.Quantity;
+          shoppingCartProduct.Quantity--;
+          quantity = shoppingCartProduct.Quantity;
         }
         else
         {
-          _db.ShoppingCartItems.Remove(shoppingCartItem);
+          _db.ShoppingCartProducts.Remove(shoppingCartProduct);
         }        
       }
 
@@ -76,28 +77,30 @@ namespace HayleesThreads.Models
       return quantity;
     }
 
-    public List<ShoppingCartItem> GetAllShoppingCartItems()
+    public List<ShoppingCartProduct> GetAllShoppingCartProducts()
     {
-      var shoppingCartItems = ShoppingCartItems ?? (ShoppingCartItems = _db.ShoppingCartItems.Where(s => s.ShoppingCartId == ShoppingCartId)
+      var shoppingCartProducts = ShoppingCartProducts ?? (ShoppingCartProducts = _db.ShoppingCartProducts.Where(s => s.ShoppingCartId == ShoppingCartId)
         .Include(p => p.Product)
         .ToList());
       
-      return shoppingCartItems;
+      return shoppingCartProducts;
     }
 
     public void ClearShoppingCart()
     {
-      var shoppingCartItems = _db.ShoppingCartItems.Where(i => i.ShoppingCartId == ShoppingCartId);
-      _db.ShoppingCartItems.RemoveRange(shoppingCartItems);
+      var shoppingCartProducts = _db.ShoppingCartProducts.Where(i => i.ShoppingCartId == ShoppingCartId);
+      _db.ShoppingCartProducts.RemoveRange(shoppingCartProducts);
       _db.SaveChanges();
     }
 
     public long GetShoppingCartTotalPrice()
     {
-      var totalPrice = (long) _db.ShoppingCartItems.Where(i => i.ShoppingCartId == ShoppingCartId)
+      var totalPrice = (long) _db.ShoppingCartProducts.Where(i => i.ShoppingCartId == ShoppingCartId)
         .Select(p => p.Product.ProductPrice).Sum();
       
       return totalPrice;
     }
+    public virtual ICollection<ShoppingCartProduct> JoinTables2 { get; set; }
+
   }
 }
