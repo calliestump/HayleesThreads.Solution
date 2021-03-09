@@ -24,6 +24,7 @@ namespace HayleesThreads
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddMvc();
+      services.AddScoped<ShoppingCart>(s => ShoppingCart.GetShoppingCart(s));
 
       services.AddEntityFrameworkMySql()
         .AddDbContext<HayleesThreadsContext>(options => options

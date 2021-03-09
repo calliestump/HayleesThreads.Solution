@@ -11,7 +11,7 @@ namespace HayleesThreads.Models
       }
     public virtual DbSet<Category> Categories { get; set; }
     public virtual DbSet<Product> Products { get; set; }
-    public virtual DbSet<ShoppingCartProduct> ShoppingCartProducts { get; set; }
+    public virtual DbSet<ShoppingCartProduct> ShoppingCartProduct { get; set; }
     
     public virtual DbSet<CategoryProduct> CategoryProduct { get; set; }
 
@@ -34,7 +34,7 @@ namespace HayleesThreads.Models
           CategoryDescription = "Explore my custom Crews",
           // CategoryImage = ""
         });
-         modelBuilder.Entity<Category>().HasData(new Category
+        modelBuilder.Entity<Category>().HasData(new Category
         {
           CategoryId = 3,
           CategoryName = "T-Shirts",

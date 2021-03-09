@@ -12,7 +12,7 @@ namespace HayleesThreads.Models
   {
     private readonly HayleesThreadsContext _db;
     public string ShoppingCartId { get; set; }
-    public List<ShoppingCartProduct> ShoppingCartProducts { get; set; }
+    // public List<ShoppingCartProduct> ShoppingCartProduct { get; set; }
     public ShoppingCart(HayleesThreadsContext db)
     {
       _db = db;
@@ -32,7 +32,7 @@ namespace HayleesThreads.Models
 
     public void AddToShoppingCart(Product product, int quantity)
     {
-      var shoppingCartProduct = _db.ShoppingCartProducts.SingleOrDefault(
+      var shoppingCartProduct = _db.ShoppingCartProduct.SingleOrDefault(
         i => i.Product.ProductId == product.ProductId && i.ShoppingCartId == ShoppingCartId);
 
       if(shoppingCartProduct == null)
@@ -43,7 +43,7 @@ namespace HayleesThreads.Models
           ProductId = product.ProductId,
           Quantity = quantity
         };
-        _db.ShoppingCartProducts.Add(shoppingCartProduct);
+        _db.ShoppingCartProduct.Add(shoppingCartProduct);
       }
       else
       {
@@ -55,7 +55,7 @@ namespace HayleesThreads.Models
 
     public int RemoveFromShoppingCart(Product product)
     {
-      var shoppingCartProduct = _db.ShoppingCartProducts.SingleOrDefault(
+      var shoppingCartProduct = _db.ShoppingCartProduct.SingleOrDefault(
         i => i.Product.ProductId == product.ProductId && i.ShoppingCartId == ShoppingCartId);
 
       var quantity = 0;
@@ -69,7 +69,7 @@ namespace HayleesThreads.Models
         }
         else
         {
-          _db.ShoppingCartProducts.Remove(shoppingCartProduct);
+          _db.ShoppingCartProduct.Remove(shoppingCartProduct);
         }        
       }
 
@@ -77,30 +77,30 @@ namespace HayleesThreads.Models
       return quantity;
     }
 
-    public List<ShoppingCartProduct> GetAllShoppingCartProducts()
+    public List<ShoppingCartProduct> GetAllShoppingCartProduct()
     {
-      var shoppingCartProducts = ShoppingCartProducts ?? (ShoppingCartProducts = _db.ShoppingCartProducts.Where(s => s.ShoppingCartId == ShoppingCartId)
+      var shoppingCartProduct = JoinTables2.ToList() ?? (JoinTables2 = _db.ShoppingCartProduct.Where(s => s.ShoppingCartId == ShoppingCartId)
         .Include(p => p.Product)
         .ToList());
       
-      return shoppingCartProducts;
+      return shoppingCartProduct.ToList();
     }
 
     public void ClearShoppingCart()
     {
-      var shoppingCartProducts = _db.ShoppingCartProducts.Where(i => i.ShoppingCartId == ShoppingCartId);
-      _db.ShoppingCartProducts.RemoveRange(shoppingCartProducts);
+      var shoppingCartProduct = _db.ShoppingCartProduct.Where(i => i.ShoppingCartId == ShoppingCartId);
+      _db.ShoppingCartProduct.RemoveRange(shoppingCartProduct);
       _db.SaveChanges();
     }
 
     public long GetShoppingCartTotalPrice()
     {
-      var totalPrice = (long) _db.ShoppingCartProducts.Where(i => i.ShoppingCartId == ShoppingCartId)
+      var totalPrice = (long) _db.ShoppingCartProduct.Where(i => i.ShoppingCartId == ShoppingCartId)
         .Select(p => p.Product.ProductPrice).Sum();
       
       return totalPrice;
     }
-    public virtual ICollection<ShoppingCartProduct> JoinTables2 { get; set; }
 
+    public virtual ICollection<ShoppingCartProduct> JoinTables2 { get; set; }
   }
 }
