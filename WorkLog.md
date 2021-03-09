@@ -7,6 +7,6 @@
 <h3>Time: 8:00</h3>
 <h4>Description: Looked over shopping cart tutorials.</h4>
 <hr />
-<h2>03/09/2021</h2>
+<h2>03/08/2021</h2>
 <h3>Time: 3:00</h3>
 <h4>Description: Looked over grid systems and flexbox for column/row organization.</h4>
