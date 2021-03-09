@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HayleesThreads.Migrations
 {
     [DbContext(typeof(HayleesThreadsContext))]
-    [Migration("20210308235229_Float")]
-    partial class Float
+    [Migration("20210309180124_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -95,7 +95,7 @@ namespace HayleesThreads.Migrations
                         {
                             CategoryId = 1,
                             CategoryDescription = "Explore my custom Hoodies!",
-                            CategoryName = "Hoodies"
+                            CategoryName = "Hoodie"
                         },
                         new
                         {

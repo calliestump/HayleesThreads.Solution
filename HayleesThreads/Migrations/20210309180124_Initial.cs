@@ -183,7 +183,7 @@ namespace HayleesThreads.Migrations
                     ProductId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     ProductName = table.Column<string>(nullable: true),
-                    ProductPrice = table.Column<decimal>(nullable: false),
+                    ProductPrice = table.Column<float>(nullable: false),
                     ProductImage = table.Column<string>(nullable: true),
                     ProductDescription = table.Column<string>(nullable: true),
                     Featured = table.Column<bool>(nullable: false),
@@ -228,26 +228,38 @@ namespace HayleesThreads.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "ShoppingCartItems",
+                columns: table => new
+                {
+                    ShoppingCartItemId = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    ShoppingCartId = table.Column<string>(nullable: true),
+                    ProductId = table.Column<int>(nullable: true),
+                    Quantity = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ShoppingCartItems", x => x.ShoppingCartItemId);
+                    table.ForeignKey(
+                        name: "FK_ShoppingCartItems_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
+                        principalColumn: "ProductId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.InsertData(
                 table: "Categories",
                 columns: new[] { "CategoryId", "CategoryDescription", "CategoryName", "UserId" },
                 values: new object[,]
                 {
-                    { 1, "Explore my custom Hoodies!", "Hoodies", null },
+                    { 1, "Explore my custom Hoodies!", "Hoodie", null },
                     { 2, "Explore my custom Crews", "Crews", null },
                     { 3, "Explore my custom T-Shirts", "T-Shirts", null },
                     { 4, "Explore my custom Sweats", "Sweats", null },
                     { 5, "Explore my custom Masks", "Masks", null },
                     { 6, "Explore my custom Hats", "Hats", null }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Products",
-                columns: new[] { "ProductId", "AllEars", "CategoryId", "Featured", "ProductDescription", "ProductImage", "ProductName", "ProductPrice", "UserId" },
-                values: new object[,]
-                {
-                    { 1, false, 1, true, "Embroided 'Tree of Life'", "~/img/appa.jpg", "Tree of Life", 14.99m, null },
-                    { 2, true, 2, true, "Hand-Embroided 'Appa' from Avatar: The Last Airbender", "~/img/appa.jpg", "Appa", 12.99m, null }
                 });
 
             migrationBuilder.CreateIndex(
@@ -306,6 +318,11 @@ namespace HayleesThreads.Migrations
                 name: "IX_Products_UserId",
                 table: "Products",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ShoppingCartItems_ProductId",
+                table: "ShoppingCartItems",
+                column: "ProductId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -327,6 +344,9 @@ namespace HayleesThreads.Migrations
 
             migrationBuilder.DropTable(
                 name: "CategoryProduct");
+
+            migrationBuilder.DropTable(
+                name: "ShoppingCartItems");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

@@ -93,7 +93,7 @@ namespace HayleesThreads.Migrations
                         {
                             CategoryId = 1,
                             CategoryDescription = "Explore my custom Hoodies!",
-                            CategoryName = "Hoodies"
+                            CategoryName = "Hoodie"
                         },
                         new
                         {

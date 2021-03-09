@@ -17,13 +17,15 @@
 
   @foreach (Product product in Model)
   {
-    <div id="manProCard" class="container card">
+    <div style="padding: 7%" id="manProCard" class="container card">
       <span id="productCard">
         <div class="card-header">
           <h4 style="margin-top: 15px">@Html.Label("'" + product.ProductName + "'")</h4>
         </div>
           <br />
           <img style="width: 80%;" id="productImage" type="image/jpg" src="@product.ProductImage" />
+          @* <h4 style="margin-top: 15px">@Html.Label("" + product.ProductPrice)</h4> *@
+          @* <h6><strong>@Html.Label(product.ProductPrice.ToString("#.##"))</strong></h6> *@
           <br /><br />
           <div style="padding: 24px;" class="card-footer">
             <span>@Html.ActionLink("View", "Details", new { id = product.ProductId }, new {style="text-decoration:none;"})</span>
@@ -43,44 +45,7 @@
 }
  *@
 
-@foreach (Product product in Model)
-{
-        <br />
-        <div id="manProCard" class="container card">
-          <span id = "productCard">
-            @* <br /><hr /> *@
-            <div class="card-header">
-              <h4 style="margin-top: 15px">@Html.Label("'" + product.ProductName + "'")</h4>
-            </div>
-            <br />
-            <img style="width: 80%;" id="productImage" type="image/jpg" src="@product.ProductImage" />
-            <br /><br />
-            @* <h4>@Html.Label("'" + product.ProductName + "'")</h4> *@
-          
-            <div style="padding: 24px;" class="card-footer">
-              <span>@Html.ActionLink("View", "Details", new { id = product.ProductId }, new {style="text-decoration:none;"})</span>
-              <br />
-            </div>
-          
-          </span>
-        </div>
-  
-  @* <div class="row align-items-start">
-    <div class="col">
-      One of three columns
-    </div>
-    <div class="col">
-      One of three columns
-    </div>
-    <div class="col">
-      One of three columns
-    </div>
-  </div> *@
-  <br />
-}
-
-
-</div>@* Product Admin Controls *@
+@* Product Admin Controls *@
 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")) 
 {
   <br />

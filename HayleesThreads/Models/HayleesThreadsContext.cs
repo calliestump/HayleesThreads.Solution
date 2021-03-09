@@ -23,7 +23,7 @@ namespace HayleesThreads.Models
         modelBuilder.Entity<Category>().HasData(new Category 
         { 
           CategoryId = 1,
-          CategoryName = "Hoodies", 
+          CategoryName = "Hoodie", 
           CategoryDescription = "Explore my custom Hoodies!",
           // CategoryImage = ""
         });

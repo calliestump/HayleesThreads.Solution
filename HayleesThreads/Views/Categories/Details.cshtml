@@ -13,38 +13,38 @@
 }
 else
 {
-    <br />
+  <div class = "grid">
     @foreach(var join in Model.JoinTables)
     {
-      <div id="manProCard" class="container card">
+      <div style="padding: 7%" id="manProCard" class="container card">
         <span id="productCard">
           <div class="card-header">
-            <h4><strong>'@join.Product.ProductName'</strong></h4>
+             <h4 style="margin-top: 15px">'@join.Product.ProductName'</h4>
           </div>
           <br />
           <img style="width: 80%;" id="productImage" type="image/jpg" src="@join.Product.ProductImage" />
-          <br /><br />
-       
-          <h5 style="padding: 2%">@join.Product.ProductDescription</h5>
-          <br />
+          <br /><br /><br />
+
           <h6><strong>$@join.Product.ProductPrice.ToString("#.##")</strong></h6><br />
-          <div style="padding: 20px;" class="card-footer">
+           <a href="#"><i class="fa fa-cart">Add to cart</i></a><br /><br />
+           <div style="padding: 20px;" class="card-footer">
             <span>@Html.ActionLink("View", "Details", "Products", new { id = @join.Product.ProductId }, new {style="text-decoration:none;"})</span>
           </div>
         </span>
-          @using (Html.BeginForm("DeleteProduct", "Categories"))
+        @using (Html.BeginForm("DeleteProduct", "Categories"))
+        {
+          @Html.Hidden("joinId", @join.CategoryProductId)
+          @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")) 
           {
-            @Html.Hidden("joinId", @join.CategoryProductId)
-            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")) 
-            {
-              <br />
-              <input type="submit" class="btn btn-outline-light" value="Remove" />
             <br />
-            }
+            <input type="submit" class="btn btn-outline-light" value="Remove" />
+          <br />
           }
+        }
+        <br />
       </div>
-      <br />
     }
+  </div>
 }
 @* Product Admin Controls *@
 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")) 
