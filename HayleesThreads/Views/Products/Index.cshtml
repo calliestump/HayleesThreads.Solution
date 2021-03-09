@@ -10,10 +10,11 @@
 <hr />
 @if (Model.Count == 0)
 {
+  <br />
   <h4><span>No products have been added to HayleesThreads :(</span></h4> 
 }
 <br />
-<div class="grid">
+<div class="moreThanThreeGrid">
 
   @foreach (Product product in Model)
   {
@@ -51,7 +52,7 @@
   <br />
   <hr />
   <br />
-  <div style="width: 5in" class="container card">
+  <div style="padding: 2.75%" class="container card">
     <span id="productCard">
       <br />
       <h1><strong>Admin Controls</strong></h1>

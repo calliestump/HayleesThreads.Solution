@@ -5,13 +5,14 @@
 @using HayleesThreads.ViewModels
 
 @model RegisterViewModel
-<div style="width: 5in" class="container card">
+<div  style="padding: 2.75%" class="container card">
 <br />
 <h3><strong>Register</strong></h3>
 
 <hr />
 <br />
-  <div id="orderForm">
+  <span id="productCard">
+    <br />
     @using (Html.BeginForm("Register", "Account", FormMethod.Post))
     {
         <span style="color: white">@Html.LabelFor(user => user.Email)</span><br>
@@ -31,7 +32,9 @@
 
         <input type="submit" class="btn btn-outline-light" value="Register" />
     }
-  </div>
+    <br /><br />
+  </span>
+  
 <br />
 <p style="color:grey">Already have an account?</p>
 <h5>@Html.ActionLink("Log in", "Login")</h5>

@@ -5,11 +5,11 @@
 @using HayleesThreads.ViewModels
 
 @model LoginViewModel
-<div style="width: 5in" class="container card">
+<div style="padding: 2.75%" class="container card">
   <br />
   <h3><strong>Log in</strong></h3>
   <hr /><br />
-  <div id="orderForm">
+  <span style="height: 320px;" id="productCard">
     @using (Html.BeginForm())
     {
       <br />
@@ -26,7 +26,7 @@
 
         <input type="submit" value="Log in" class="btn btn-outline-light" />
     }
-  </div>
+  </span>
   <br />
   <p style="color:grey">Don't have an account?</p>
   <h5>@Html.ActionLink("Register", "Register")</h5>

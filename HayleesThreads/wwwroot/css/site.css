@@ -1,6 +1,6 @@
 ﻿.card  {
   padding: 2%;
-  background-color: rgba(224, 191, 171, 0.651);
+  background-color: rgba(224, 191, 171, 0.48);
   border-radius: 10px;
   width: 5in;
   height: auto;
@@ -128,9 +128,23 @@ div#manProDetails {
   width: 400px;
 }
 
-.grid {
+.moreThanThreeGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr); 
+  /* grid-template-columns: 1fr 1fr 3fr 1fr 1fr;  */
+  gap: 40px;
+}
+
+.grid1 {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); 
+  /* grid-template-columns: 1fr 1fr 3fr 1fr 1fr;  */
+  gap: 40px;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
   /* grid-template-columns: 1fr 1fr 3fr 1fr 1fr;  */
   gap: 40px;
 }

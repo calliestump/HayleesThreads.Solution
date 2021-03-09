@@ -11,9 +11,81 @@
   <br />
   <h5><span>This Category does not contain any products :(</span><br /></h5>
 }
+else if(@Model.JoinTables.Count == 1 )
+{
+  <br />
+  <div class = "grid1">
+    @foreach(var join in Model.JoinTables)
+    {
+      <div style="padding: 3%" id="manProCard" class="container card">
+        <span id="productCard">
+          <div class="card-header">
+             <h4 style="margin-top: 15px">'@join.Product.ProductName'</h4>
+          </div>
+          <br />
+          <img style="width: 80%;" id="productImage" type="image/jpg" src="@join.Product.ProductImage" />
+          <br /><br />
+
+          <h6><strong>$@join.Product.ProductPrice.ToString("#.##")</strong></h6><br />
+           <a href="#"><i class="fa fa-cart">Add to cart</i></a><br /><br />
+           <div style="padding: 20px;" class="card-footer">
+            <span>@Html.ActionLink("View", "Details", "Products", new { id = @join.Product.ProductId }, new {style="text-decoration:none;"})</span>
+          </div>
+        </span>
+        @using (Html.BeginForm("DeleteProduct", "Categories"))
+        {
+          @Html.Hidden("joinId", @join.CategoryProductId)
+          @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")) 
+          {
+            <br />
+            <input type="submit" class="btn btn-outline-light" value="Remove" />
+        
+          }
+        }
+        
+      </div>
+    }
+  </div>
+}
+else if(@Model.JoinTables.Count == 2 )
+{
+  <br />
+  <div class = "grid2">
+    @foreach(var join in Model.JoinTables)
+    {
+      <div style="padding: 7%" id="manProCard" class="container card">
+        <span id="productCard">
+          <div class="card-header">
+             <h4 style="margin-top: 15px">'@join.Product.ProductName'</h4>
+          </div>
+          <br />
+          <img style="width: 80%;" id="productImage" type="image/jpg" src="@join.Product.ProductImage" />
+          <br /><br />
+
+          <h6><strong>$@join.Product.ProductPrice.ToString("#.##")</strong></h6><br />
+           <a href="#"><i class="fa fa-cart">Add to cart</i></a><br /><br />
+           <div style="padding: 20px;" class="card-footer">
+            <span>@Html.ActionLink("View", "Details", "Products", new { id = @join.Product.ProductId }, new {style="text-decoration:none;"})</span>
+          </div>
+        </span>
+        @using (Html.BeginForm("DeleteProduct", "Categories"))
+        {
+          @Html.Hidden("joinId", @join.CategoryProductId)
+          @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")) 
+          {
+            <br />
+            <input type="submit" class="btn btn-outline-light" value="Remove" />
+       
+          }
+        }
+    
+      </div>
+    }
+  </div>
+}
 else
 {
-  <div class = "grid">
+  <div class = "moreThanThreeGrid">
     @foreach(var join in Model.JoinTables)
     {
       <div style="padding: 7%" id="manProCard" class="container card">
@@ -46,13 +118,14 @@ else
     }
   </div>
 }
+
 @* Product Admin Controls *@
 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")) 
 {
   <br />
   <hr />
   <br />
-  <div style="width: 5in" class="container card">
+  <div style="padding: 2.75%" class="container card">
     <span id="productCard">
       <br />
       <h1><strong>Admin Controls</strong></h1>
