@@ -24,12 +24,12 @@ namespace HayleesThreads
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddMvc();
-      services.AddScoped<Product, Product>(); 
+      services.AddScoped<IProductRepository, ProductRepository>();
       services.AddScoped<ShoppingCart>(sc => ShoppingCart.GetShoppingCart(sc));
 
       services.AddHttpContextAccessor();
       services.AddSession();
-      
+
       // Microsoft.AspNetCore.Http.DefaultHttpContext.get_Session()
       services.AddEntityFrameworkMySql()
         .AddDbContext<HayleesThreadsContext>(options => options

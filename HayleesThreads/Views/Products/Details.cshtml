@@ -18,7 +18,14 @@
   <h6><strong>$@Html.DisplayFor(model => model.ProductPrice)</strong></h6>
   <br />
   <div style="padding: 24px;" class="card-footer">
-    <a href="#"><i class="fa fa-cart">Add to cart</i></a>
+    <div class="addToCart">
+      <p class="button">
+        <a class="btn btn-outline-light"
+          asp-controller="ShoppingCart"
+          asp-action="AddToShoppingCart"
+          asp-route-productId="@Model.ProductId">Add to Cart</a> 
+      </p>
+    </div>
   </div>
 
   </span>

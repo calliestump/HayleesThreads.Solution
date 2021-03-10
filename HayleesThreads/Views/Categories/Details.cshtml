@@ -59,8 +59,16 @@ else if(@Model.JoinTables.Count == 2 )
           <img alt="https://us.shein.com/" style="width: 80%;" id="productImage" type="image/jpg" src="@join.Product.ProductImage" />
           <br /><br />
 
-          <h6><strong>$@join.Product.ProductPrice.ToString("#.##")</strong></h6><br />
-           <a href="#"><i class="fa fa-cart">Add to cart</i></a><br /><br />
+          @* <h6><strong>$@join.Product.ProductPrice.ToString("#.##")</strong></h6><br />
+          <div class="addToCart">
+            <p class="button">
+              <a class="btn btn-outline-light"
+                asp-controller="ShoppingCart"
+                asp-action="AddToShoppingCart"
+                asp-route-productId="@join.Product.ProductId">Add to Cart</a> 
+            </p>
+          </div>
+           <a href="#"><i class="fa fa-cart">Add to cart</i></a><br /><br /> *@
            <div style="padding: 20px;" class="card-footer">
             <span>@Html.ActionLink("View", "Details", "Products", new { id = @join.Product.ProductId }, new {style="text-decoration:none;"})</span>
           </div>
@@ -94,8 +102,8 @@ else
           <img style="width: 80%;" id="productImage" type="image/jpg" src="@join.Product.ProductImage" />
           <br /><br /><br />
 
-          <h6><strong>$@join.Product.ProductPrice.ToString("#.##")</strong></h6><br />
-           <a href="#"><i class="fa fa-cart">Add to cart</i></a><br /><br />
+          @* <h6><strong>$@join.Product.ProductPrice.ToString("#.##")</strong></h6><br />
+           <a href="#"><i class="fa fa-cart">Add to cart</i></a><br /><br /> *@
            <div style="padding: 20px;" class="card-footer">
             <span>@Html.ActionLink("View", "Details", "Products", new { id = @join.Product.ProductId }, new {style="text-decoration:none;"})</span>
           </div>
