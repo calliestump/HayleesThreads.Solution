@@ -25,7 +25,11 @@ namespace HayleesThreads
     {
       services.AddMvc();
       services.AddScoped<Product, Product>(); 
-      services.AddScoped<ShoppingCart>(s => ShoppingCart.GetShoppingCart(s));
+      services.AddScoped<ShoppingCart>(sc => ShoppingCart.GetShoppingCart(sc));
+
+      services.AddHttpContextAccessor();
+      services.AddSession();
+      
       // Microsoft.AspNetCore.Http.DefaultHttpContext.get_Session()
       services.AddEntityFrameworkMySql()
         .AddDbContext<HayleesThreadsContext>(options => options
@@ -53,6 +57,8 @@ namespace HayleesThreads
       app.UseDeveloperExceptionPage();
 
       app.UseAuthentication();
+
+      app.UseSession();
 
       app.UseMvc(routes =>
       {
