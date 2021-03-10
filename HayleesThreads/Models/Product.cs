@@ -28,7 +28,7 @@ namespace HayleesThreads.Models
     
     // public Cart CurrentCart { get; set; }
     
-    // public Category Category { get; set;}
+    public Category Category { get; set;} // Lets hope
     public virtual ApplicationUser User { get; set; }
     
     public virtual ICollection<CategoryProduct> JoinTables { get; set; }

@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HayleesThreads.Migrations
 {
     [DbContext(typeof(HayleesThreadsContext))]
-    [Migration("20210310191720_Feeeed")]
-    partial class Feeeed
+    [Migration("20210310214645_LetsSee")]
+    partial class LetsSee
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

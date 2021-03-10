@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HayleesThreads.Migrations
 {
     [DbContext(typeof(HayleesThreadsContext))]
-    [Migration("20210310195959_Hello")]
-    partial class Hello
+    [Migration("20210310214150_Help")]
+    partial class Help
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -238,7 +238,7 @@ namespace HayleesThreads.Migrations
                     b.Property<int>("ShoppingCartProductId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("ProductId");
+                    b.Property<int?>("ProductId");
 
                     b.Property<int>("Quantity");
 
@@ -402,8 +402,7 @@ namespace HayleesThreads.Migrations
                 {
                     b.HasOne("HayleesThreads.Models.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("ProductId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

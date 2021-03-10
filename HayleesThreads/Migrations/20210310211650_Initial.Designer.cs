@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HayleesThreads.Migrations
 {
     [DbContext(typeof(HayleesThreadsContext))]
-    [Migration("20210309232932_Update")]
-    partial class Update
+    [Migration("20210310211650_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -147,6 +147,64 @@ namespace HayleesThreads.Migrations
                     b.ToTable("CategoryProduct");
                 });
 
+            modelBuilder.Entity("HayleesThreads.Models.Order", b =>
+                {
+                    b.Property<int>("OrderId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasMaxLength(100);
+
+                    b.Property<string>("City")
+                        .IsRequired();
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(25);
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(50);
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired();
+
+                    b.Property<string>("State")
+                        .IsRequired()
+                        .HasMaxLength(2);
+
+                    b.Property<string>("ZipCode")
+                        .IsRequired()
+                        .HasMaxLength(5);
+
+                    b.HasKey("OrderId");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("HayleesThreads.Models.OrderDetail", b =>
+                {
+                    b.Property<int>("OrderDetailId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("OrderId");
+
+                    b.Property<int>("ProductId");
+
+                    b.Property<float>("ProductPrice");
+
+                    b.Property<int>("Quantity");
+
+                    b.HasKey("OrderDetailId");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("OrderDetails");
+                });
+
             modelBuilder.Entity("HayleesThreads.Models.Product", b =>
                 {
                     b.Property<int>("ProductId")
@@ -170,19 +228,11 @@ namespace HayleesThreads.Migrations
 
                     b.HasKey("ProductId");
 
+                    b.HasIndex("CategoryId");
+
                     b.HasIndex("UserId");
 
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("HayleesThreads.Models.ShoppingCart", b =>
-                {
-                    b.Property<string>("ShoppingCartId")
-                        .ValueGeneratedOnAdd();
-
-                    b.HasKey("ShoppingCartId");
-
-                    b.ToTable("ShoppingCart");
                 });
 
             modelBuilder.Entity("HayleesThreads.Models.ShoppingCartProduct", b =>
@@ -190,7 +240,7 @@ namespace HayleesThreads.Migrations
                     b.Property<int>("ShoppingCartProductId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("ProductId");
+                    b.Property<int?>("ProductId");
 
                     b.Property<int>("Quantity");
 
@@ -200,9 +250,7 @@ namespace HayleesThreads.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.HasIndex("ShoppingCartId");
-
-                    b.ToTable("ShoppingCartProduct");
+                    b.ToTable("ShoppingCartProducts");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -332,8 +380,26 @@ namespace HayleesThreads.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
+            modelBuilder.Entity("HayleesThreads.Models.OrderDetail", b =>
+                {
+                    b.HasOne("HayleesThreads.Models.Order", "Order")
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("HayleesThreads.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("HayleesThreads.Models.Product", b =>
                 {
+                    b.HasOne("HayleesThreads.Models.Category", "Category")
+                        .WithMany("Products")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("HayleesThreads.Models.ApplicationUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
@@ -342,13 +408,8 @@ namespace HayleesThreads.Migrations
             modelBuilder.Entity("HayleesThreads.Models.ShoppingCartProduct", b =>
                 {
                     b.HasOne("HayleesThreads.Models.Product", "Product")
-                        .WithMany("JoinTables2")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("HayleesThreads.Models.ShoppingCart", "ShoppingCart")
-                        .WithMany("JoinTables2")
-                        .HasForeignKey("ShoppingCartId");
+                        .WithMany()
+                        .HasForeignKey("ProductId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

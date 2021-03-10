@@ -2,7 +2,7 @@
 
 namespace HayleesThreads.Migrations
 {
-    public partial class Testttt : Migration
+    public partial class Help : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

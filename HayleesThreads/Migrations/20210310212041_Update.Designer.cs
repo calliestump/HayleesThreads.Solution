@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HayleesThreads.Migrations
 {
     [DbContext(typeof(HayleesThreadsContext))]
-    [Migration("20210310185457_Random")]
-    partial class Random
+    [Migration("20210310212041_Update")]
+    partial class Update
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -228,6 +228,8 @@ namespace HayleesThreads.Migrations
 
                     b.HasKey("ProductId");
 
+                    b.HasIndex("CategoryId");
+
                     b.HasIndex("UserId");
 
                     b.ToTable("Products");
@@ -238,7 +240,7 @@ namespace HayleesThreads.Migrations
                     b.Property<int>("ShoppingCartProductId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("ProductId");
+                    b.Property<int?>("ProductId");
 
                     b.Property<int>("Quantity");
 
@@ -393,6 +395,11 @@ namespace HayleesThreads.Migrations
 
             modelBuilder.Entity("HayleesThreads.Models.Product", b =>
                 {
+                    b.HasOne("HayleesThreads.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("HayleesThreads.Models.ApplicationUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
@@ -402,8 +409,7 @@ namespace HayleesThreads.Migrations
                 {
                     b.HasOne("HayleesThreads.Models.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("ProductId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

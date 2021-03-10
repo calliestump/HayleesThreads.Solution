@@ -50,6 +50,25 @@ namespace HayleesThreads.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Orders",
+                columns: table => new
+                {
+                    OrderId = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    FirstName = table.Column<string>(maxLength: 25, nullable: false),
+                    LastName = table.Column<string>(maxLength: 50, nullable: false),
+                    Address = table.Column<string>(maxLength: 100, nullable: false),
+                    City = table.Column<string>(nullable: false),
+                    State = table.Column<string>(maxLength: 2, nullable: false),
+                    ZipCode = table.Column<string>(maxLength: 5, nullable: false),
+                    PhoneNumber = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Orders", x => x.OrderId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -195,6 +214,12 @@ namespace HayleesThreads.Migrations
                 {
                     table.PrimaryKey("PK_Products", x => x.ProductId);
                     table.ForeignKey(
+                        name: "FK_Products_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "CategoryId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_Products_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
@@ -229,20 +254,48 @@ namespace HayleesThreads.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ShoppingCartItems",
+                name: "OrderDetails",
                 columns: table => new
                 {
-                    ShoppingCartItemId = table.Column<int>(nullable: false)
+                    OrderDetailId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    ShoppingCartId = table.Column<string>(nullable: true),
-                    ProductId = table.Column<int>(nullable: true),
-                    Quantity = table.Column<int>(nullable: false)
+                    OrderId = table.Column<int>(nullable: false),
+                    ProductId = table.Column<int>(nullable: false),
+                    Quantity = table.Column<int>(nullable: false),
+                    ProductPrice = table.Column<float>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ShoppingCartItems", x => x.ShoppingCartItemId);
+                    table.PrimaryKey("PK_OrderDetails", x => x.OrderDetailId);
                     table.ForeignKey(
-                        name: "FK_ShoppingCartItems_Products_ProductId",
+                        name: "FK_OrderDetails_Orders_OrderId",
+                        column: x => x.OrderId,
+                        principalTable: "Orders",
+                        principalColumn: "OrderId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_OrderDetails_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
+                        principalColumn: "ProductId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ShoppingCartProducts",
+                columns: table => new
+                {
+                    ShoppingCartProductId = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    ShoppingCartId = table.Column<string>(nullable: true),
+                    Quantity = table.Column<int>(nullable: false),
+                    ProductId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ShoppingCartProducts", x => x.ShoppingCartProductId);
+                    table.ForeignKey(
+                        name: "FK_ShoppingCartProducts_Products_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "ProductId",
@@ -315,13 +368,28 @@ namespace HayleesThreads.Migrations
                 column: "ProductId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_OrderDetails_OrderId",
+                table: "OrderDetails",
+                column: "OrderId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_OrderDetails_ProductId",
+                table: "OrderDetails",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_CategoryId",
+                table: "Products",
+                column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Products_UserId",
                 table: "Products",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ShoppingCartItems_ProductId",
-                table: "ShoppingCartItems",
+                name: "IX_ShoppingCartProducts_ProductId",
+                table: "ShoppingCartProducts",
                 column: "ProductId");
         }
 
@@ -346,16 +414,22 @@ namespace HayleesThreads.Migrations
                 name: "CategoryProduct");
 
             migrationBuilder.DropTable(
-                name: "ShoppingCartItems");
+                name: "OrderDetails");
+
+            migrationBuilder.DropTable(
+                name: "ShoppingCartProducts");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "Categories");
+                name: "Orders");
 
             migrationBuilder.DropTable(
                 name: "Products");
+
+            migrationBuilder.DropTable(
+                name: "Categories");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
