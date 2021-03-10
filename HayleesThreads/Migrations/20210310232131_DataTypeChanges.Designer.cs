@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HayleesThreads.Migrations
 {
     [DbContext(typeof(HayleesThreadsContext))]
-    [Migration("20210310214645_LetsSee")]
-    partial class LetsSee
+    [Migration("20210310232131_DataTypeChanges")]
+    partial class DataTypeChanges
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -222,7 +222,7 @@ namespace HayleesThreads.Migrations
 
                     b.Property<string>("ProductName");
 
-                    b.Property<float>("ProductPrice");
+                    b.Property<int>("ProductPrice");
 
                     b.Property<string>("UserId");
 

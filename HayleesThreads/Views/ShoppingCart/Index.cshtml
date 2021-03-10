@@ -4,6 +4,7 @@
 @{
   Layout = "_Layout";
 }
+
 @using HayleesThreads.ViewModels;
 @model ShoppingCartViewModel
 
@@ -38,9 +39,14 @@
       <td class="text-right">@Model.ShoppingCartTotalPrice.ToString("c")</td>
     </tfoot>
   </table>
+  <div class="text-center">
   <hr />
-  <p><a class="nav-link" href= "/Order"> Checkout</a></h4></p>
+    <a class="btn btn-outline-light" asp-controller="ShoppingCart" asp-action="ClearShoppingCart">Clear Cart</a>
+      <a class="btn btn-outline-light" asp-controller="Order" asp-action="Index">Checkout</a>
+  </div>
 </div>
+<br />
+<p>@Html.ActionLink("Back to Products", "Index")</p>
 
 @* @{
   Layout = "_Layout";

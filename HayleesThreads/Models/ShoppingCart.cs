@@ -53,12 +53,12 @@ namespace HayleesThreads.Models
       _db.SaveChanges();
     }
 
-    public int RemoveFromShoppingCart(Product product)
+    public double RemoveFromShoppingCart(Product product)
     {
       var shoppingCartProduct = _db.ShoppingCartProducts.SingleOrDefault(
         s => s.Product.ProductId == product.ProductId && s.ShoppingCartId == ShoppingCartId);
 
-      var localAmount = 0;
+      var localAmount = 0.0;
 
       if(shoppingCartProduct != null)
       {
@@ -84,11 +84,14 @@ namespace HayleesThreads.Models
       //   .ToList());
       
       // return shoppingCartProduct.ToList();
-      return ShoppingCartProducts ?? (ShoppingCartProducts = _db.ShoppingCartProducts.Where(c
+      var unlistedShoppingCartProducts = _db.ShoppingCartProducts.Where(c
        => c.ShoppingCartId == ShoppingCartId)
-          .Include(s => s.Product)
-          .ToList());
+          .Include(s => s.Product);
+      List<ShoppingCartProduct> shoppingCartProducts = unlistedShoppingCartProducts.ToList();
+      return shoppingCartProducts;
     }
+    //ShoppingCartProducts ?? (ShoppingCartProducts =
+    // Convert.ToInt32()
 
     public void ClearShoppingCart()
     {
@@ -107,9 +110,9 @@ namespace HayleesThreads.Models
       
     //   return totalPrice;
     // }
-     public float GetShoppingCartTotalPrice()
+     public decimal GetShoppingCartTotalPrice()
     {
-      var totalPrice = _db.ShoppingCartProducts.Where(c => c.ShoppingCartId == ShoppingCartId)
+      decimal totalPrice = (decimal) _db.ShoppingCartProducts.Where(c => c.ShoppingCartId == ShoppingCartId)
         .Select(c => c.Product.ProductPrice * c.Quantity).Sum();
       
       return totalPrice;

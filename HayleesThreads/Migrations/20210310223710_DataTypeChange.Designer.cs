@@ -3,14 +3,16 @@ using System;
 using HayleesThreads.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HayleesThreads.Migrations
 {
     [DbContext(typeof(HayleesThreadsContext))]
-    partial class HayleesThreadsContextModelSnapshot : ModelSnapshot
+    [Migration("20210310223710_DataTypeChange")]
+    partial class DataTypeChange
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -220,7 +222,7 @@ namespace HayleesThreads.Migrations
 
                     b.Property<string>("ProductName");
 
-                    b.Property<decimal>("ProductPrice");
+                    b.Property<float>("ProductPrice");
 
                     b.Property<string>("UserId");
 
@@ -240,7 +242,7 @@ namespace HayleesThreads.Migrations
 
                     b.Property<int?>("ProductId");
 
-                    b.Property<int>("Quantity");
+                    b.Property<float>("Quantity");
 
                     b.Property<string>("ShoppingCartId");
 

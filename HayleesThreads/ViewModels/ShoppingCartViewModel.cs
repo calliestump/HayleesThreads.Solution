@@ -9,6 +9,6 @@ namespace HayleesThreads.ViewModels
     public class ShoppingCartViewModel
     {
         public ShoppingCart ShoppingCart { get; set; }
-        public float ShoppingCartTotalPrice { get; set; }
+        public decimal ShoppingCartTotalPrice { get; set; }
     }
 }

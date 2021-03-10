@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using HayleesThreads.ViewModels;
+using System;
 
 namespace HayleesThreads.Controllers
 {
@@ -33,6 +34,7 @@ namespace HayleesThreads.Controllers
       {
         // _shoppingCart.JoinTables2 = _shoppingCart.GetAllShoppingCartProducts();
         _shoppingCart.ShoppingCartProducts = _shoppingCart.GetShoppingCartProducts();
+        Console.WriteLine("Got Products");
         var shoppingCartViewModel = new ShoppingCartViewModel
         {
           ShoppingCart = _shoppingCart,
@@ -44,7 +46,7 @@ namespace HayleesThreads.Controllers
 
       public RedirectToActionResult AddToShoppingCart(int productId) 
       {
-        var selectedProduct = _productRepository.GetAllProducts.FirstOrDefault(c => c.ProductId == productId);
+        var selectedProduct = _db.Products.FirstOrDefault(c => c.ProductId == productId);
 
         if(selectedProduct != null)
         {
