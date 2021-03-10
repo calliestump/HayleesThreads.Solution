@@ -3,14 +3,16 @@ using System;
 using HayleesThreads.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HayleesThreads.Migrations
 {
     [DbContext(typeof(HayleesThreadsContext))]
-    partial class HayleesThreadsContextModelSnapshot : ModelSnapshot
+    [Migration("20210310185435_Remove")]
+    partial class Remove
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -226,8 +228,6 @@ namespace HayleesThreads.Migrations
 
                     b.HasKey("ProductId");
 
-                    b.HasIndex("CategoryId");
-
                     b.HasIndex("UserId");
 
                     b.ToTable("Products");
@@ -238,7 +238,7 @@ namespace HayleesThreads.Migrations
                     b.Property<int>("ShoppingCartProductId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("ProductId");
+                    b.Property<int>("ProductId");
 
                     b.Property<int>("Quantity");
 
@@ -393,11 +393,6 @@ namespace HayleesThreads.Migrations
 
             modelBuilder.Entity("HayleesThreads.Models.Product", b =>
                 {
-                    b.HasOne("HayleesThreads.Models.Category", "Category")
-                        .WithMany("Products")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
                     b.HasOne("HayleesThreads.Models.ApplicationUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
@@ -407,7 +402,8 @@ namespace HayleesThreads.Migrations
                 {
                     b.HasOne("HayleesThreads.Models.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ProductId");
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

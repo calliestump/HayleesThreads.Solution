@@ -13,6 +13,7 @@ namespace HayleesThreads.Models
 
     public string CategoryDescription { get; set; }
     public virtual ApplicationUser User { get; set; }
+    // public List<Product> Products { get; set; }
 
     public virtual ICollection<CategoryProduct> JoinTables { get; set; }
   }

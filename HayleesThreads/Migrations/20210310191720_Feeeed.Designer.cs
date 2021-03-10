@@ -3,14 +3,16 @@ using System;
 using HayleesThreads.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HayleesThreads.Migrations
 {
     [DbContext(typeof(HayleesThreadsContext))]
-    partial class HayleesThreadsContextModelSnapshot : ModelSnapshot
+    [Migration("20210310191720_Feeeed")]
+    partial class Feeeed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -394,7 +396,7 @@ namespace HayleesThreads.Migrations
             modelBuilder.Entity("HayleesThreads.Models.Product", b =>
                 {
                     b.HasOne("HayleesThreads.Models.Category", "Category")
-                        .WithMany("Products")
+                        .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade);
 

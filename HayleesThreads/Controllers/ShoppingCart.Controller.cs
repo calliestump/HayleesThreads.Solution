@@ -16,10 +16,10 @@ namespace HayleesThreads.Controllers
       private readonly UserManager<ApplicationUser> _userManager;
 
       public readonly ShoppingCart _shoppingCart;
-      public readonly Product _product;
-      public ShoppingCartController(UserManager<ApplicationUser> userManager, HayleesThreadsContext db, Product product, ShoppingCart shoppingCart)
+      public readonly IProductRepository _productRepository;
+      public ShoppingCartController(UserManager<ApplicationUser> userManager, HayleesThreadsContext db, IProductRepository productRepository, ShoppingCart shoppingCart)
       {
-        _product = product;
+        _productRepository = productRepository;
         _shoppingCart = shoppingCart;
         _userManager = userManager;
         _db = db;
@@ -31,7 +31,8 @@ namespace HayleesThreads.Controllers
 
       public ViewResult Index()
       {
-        _shoppingCart.JoinTables2 = _shoppingCart.GetAllShoppingCartProducts();
+        // _shoppingCart.JoinTables2 = _shoppingCart.GetAllShoppingCartProducts();
+        _shoppingCart.ShoppingCartProducts = _shoppingCart.GetShoppingCartProducts();
         var shoppingCartViewModel = new ShoppingCartViewModel
         {
           ShoppingCart = _shoppingCart,
@@ -39,6 +40,30 @@ namespace HayleesThreads.Controllers
         };
         
         return View(shoppingCartViewModel);
+      }
+
+      public RedirectToActionResult AddToShoppingCart(int productId) 
+      {
+        var selectedProduct = _productRepository.GetAllProducts.FirstOrDefault(c => c.ProductId == productId);
+
+        if(selectedProduct != null)
+        {
+          _shoppingCart.AddToShoppingCart(selectedProduct, 1);
+        }
+
+        return RedirectToAction("Index");
+      }
+
+      public RedirectToActionResult RemoveFromShoppingCart(int productId) 
+      {
+        var selectedProduct = _productRepository.GetAllProducts.FirstOrDefault(c => c.ProductId == productId);
+
+        if(selectedProduct != null)
+        {
+          _shoppingCart.RemoveFromShoppingCart(selectedProduct);
+        }
+
+        return RedirectToAction("Index");
       }
 
       // public void AddToShoppingCart(int id)

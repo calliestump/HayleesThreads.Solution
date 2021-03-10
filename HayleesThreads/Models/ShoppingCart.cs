@@ -77,7 +77,7 @@ namespace HayleesThreads.Models
       return localAmount;
     }
 
-    public List<ShoppingCartProduct> GetAllShoppingCartProducts()
+    public List<ShoppingCartProduct> GetShoppingCartProducts()
     {
       // var shoppingCartProduct = JoinTables2.ToList() ?? (JoinTables2 = _db.ShoppingCartProducts.Where(s => s.ShoppingCartId == ShoppingCartId)
       //   .Include(p => p.Product)

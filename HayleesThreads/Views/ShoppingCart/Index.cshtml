@@ -4,10 +4,40 @@
 @{
   Layout = "_Layout";
 }
+@using HayleesThreads.ViewModels;
+@model ShoppingCartViewModel
+
 <div class = "container card">
   <h1>Cart</h1>
   <hr />
-  <p>Use this page for your shopping cart.</p>
+  <p>Your Products</p>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Selected Amount</th>
+        <th>Product</th>
+        <th class="text-right">Price</th>
+        <th class="text-right">Subtotal</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach(var item in Model.ShoppingCart.ShoppingCartProducts)
+      {
+        <tr>
+          <td class="text-center">@item.Quantity</td>
+          <td class="text-left">@item.Product.ProductName</td>
+          <td class="text-right">@item.Product.ProductPrice.ToString("c")</td>
+          <td class="text-right">
+            @((item.Quantity * item.Product.ProductPrice).ToString("c"))
+          </td>
+        </tr>
+      }
+    </tbody>
+    <tfoot>
+      <td colspan="3" class="text-right">Total Price</td>
+      <td class="text-right">@Model.ShoppingCartTotalPrice.ToString("c")</td>
+    </tfoot>
+  </table>
   <hr />
   <p><a class="nav-link" href= "/Order"> Checkout</a></h4></p>
 </div>
