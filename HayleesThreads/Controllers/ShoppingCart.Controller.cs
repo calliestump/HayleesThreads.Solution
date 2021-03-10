@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using HayleesThreads.ViewModels;
 
 namespace HayleesThreads.Controllers
 {
@@ -13,14 +14,31 @@ namespace HayleesThreads.Controllers
     {
       private readonly HayleesThreadsContext _db;
       private readonly UserManager<ApplicationUser> _userManager;
-      public ShoppingCartController(UserManager<ApplicationUser> userManager, HayleesThreadsContext db)
+
+      public readonly ShoppingCart _shoppingCart;
+      public readonly Product _product;
+      public ShoppingCartController(UserManager<ApplicationUser> userManager, HayleesThreadsContext db, Product product, ShoppingCart shoppingCart)
       {
+        _product = product;
+        _shoppingCart = shoppingCart;
         _userManager = userManager;
         _db = db;
       }
-      public ActionResult Index()
+      // public ActionResult Index()
+      // {
+      //   return View();
+      // }
+
+      public ViewResult Index()
       {
-        return View();
+        _shoppingCart.JoinTables2 = _shoppingCart.GetAllShoppingCartProducts();
+        var shoppingCartViewModel = new ShoppingCartViewModel
+        {
+          ShoppingCart = _shoppingCart,
+          ShoppingCartTotalPrice = _shoppingCart.GetShoppingCartTotalPrice()
+        };
+        
+        return View(shoppingCartViewModel);
       }
 
       // public void AddToShoppingCart(int id)
