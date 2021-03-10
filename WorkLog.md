@@ -1,3 +1,5 @@
+<h1>Work Log</h1>
+<h2><strong>HayleesThreads</strong></h2>
 <hr />
 <h2>03/04/2021</h2>
 <h3>Time: 12:04p.m</h3>
@@ -16,3 +18,6 @@
 <h2>03/09/2021</h2>
 <h3>Time: 2:50p.m - 3:16p.m</h3>
 <h4>Description: Looked over more cart-product tutorials - currently praying :'( .</h4>
+<h3>Time: 7:45p.m - 8:00p.m</h3>
+<h4>Description: Read over documentation of one-to-many and many-to-many for cart/product relationship.</h4>
+
