@@ -24,8 +24,9 @@ namespace HayleesThreads
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddMvc();
+      services.AddScoped<Product, Product>(); 
       services.AddScoped<ShoppingCart>(s => ShoppingCart.GetShoppingCart(s));
-
+      // Microsoft.AspNetCore.Http.DefaultHttpContext.get_Session()
       services.AddEntityFrameworkMySql()
         .AddDbContext<HayleesThreadsContext>(options => options
         .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));

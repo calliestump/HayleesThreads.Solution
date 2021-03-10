@@ -43,5 +43,8 @@ namespace HayleesThreads.Models
 		[DataType(DataType.PhoneNumber)]
 		[Display(Name = "Phone Number")]
 		public string PhoneNumber { get; set; }
+
+		public List<OrderDetail> OrderDetails { get; set; } // ?
+
   }
 }
