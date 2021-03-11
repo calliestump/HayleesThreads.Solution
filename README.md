@@ -26,21 +26,21 @@ This is an E-Commerce application for a Haylees Threads. Data and significant re
 </details>
 <hr>
 
-## <u><strong>Demonstrations</strong></u>
+## <u><strong>Application Demonstrations</strong></u>
 <details>
 <summary>Expand</summary>
 
 <br />
 
-### Customer UI:
+### <strong>Customer UI</strong>:
 
-<img src="HayleesThreads/wwwroot/img/customerUI.gif">
+<img src="HayleesThreads/wwwroot/img/customerUI.gif" width="650" height="500">
 
 <br /><br />
 
-### Admin UI:
+### <strong>Admin UI</strong>:
 
-<img src="HayleesThreads/wwwroot/img/adminUI.gif">
+<img src="HayleesThreads/wwwroot/img/adminUI.gif"  width="650" height="500">
 </details>
 <br />
 
@@ -52,6 +52,7 @@ This is an E-Commerce application for a Haylees Threads. Data and significant re
 <img src="HayleesThreads/wwwroot/img/adminUI.gif">
 
 <br /><br /> -->
+<hr />
 
 ## <u>**Getting Started**</u>
 ### **☑️ Requirements**
