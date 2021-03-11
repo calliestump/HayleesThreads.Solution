@@ -43,15 +43,6 @@ This is an E-Commerce application for a Haylees Threads. Data and significant re
 <img src="HayleesThreads/wwwroot/img/adminUI.gif"  width="650" height="500">
 </details>
 <br />
-
-<!-- ### Customer UI:
-<img src="HayleesThreads/wwwroot/img/adminUI.gif">
-<br /><br /> -->
-
-<!-- ### Admin UI:
-<img src="HayleesThreads/wwwroot/img/adminUI.gif">
-
-<br /><br /> -->
 <hr />
 
 ## <u>**Getting Started**</u>
@@ -124,7 +115,6 @@ git remote add origin [personal Github repo. link]
 
 ## <u>**Setting up User Roles**</u>
 #### Navigate to HayleesThreads/Controllers/AdministrationController.cs" and comment out [Authorize(Roles = "Admin")] underneath the namespace. This will give you  access to Admin views without being logged in. 
-<br />
 
 #### Complete the following steps to assign an account to a user role:
 
