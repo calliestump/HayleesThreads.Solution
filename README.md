@@ -20,6 +20,7 @@ This is an E-Commerce application for a Haylees Threads. Data and significant re
 
 * As a user I should be able to navigate to a splash page that lists all categories and products.
 * As the user, I need to be able to select a category and see a list of all of the products in that cataegory. I also need to be able to select a product, and see it's details.
+* As the user, I need to be able to add products to my cart.
 * As the admin, I need to be able to add new categories and products to our system.
 * As an admin, I need to be able to add, edit, or remove categories and products. I also need to be able to modify their relationship from the other side.
 </details>
@@ -77,8 +78,11 @@ git remote add origin [personal Github repo. link]
     "DefaultConnection": "Server=localhost;Port=3306;database=firstName_lastName_HayleesThreads;uid=root;pwd=YourPassword;"
   }
 }
+
 ```
-## **Technologies Used**
+<hr />
+
+## <u>**Technologies Used**</u>
 * Visual Studio Code 1.52.1
 * C# V:7.3
 * .NET Core V: 2.2.0
@@ -88,8 +92,9 @@ git remote add origin [personal Github repo. link]
 * Entity Framework Core V: 2.2.6
 * dotnet script, REPL
 * Identity 
+<hr />
 
-## **Setting up User Roles**
+## <u>**Setting up User Roles**</u>
 #### Navigate to HayleesThreads/Controllers/AdministrationController.cs" and comment out [Authorize(Roles = "Admin")] underneath the namespace. This will give you  access to Admin views without being logged in. 
 <br />
 
@@ -101,8 +106,8 @@ git remote add origin [personal Github repo. link]
 4. Create a new role and name it "Admin".
 4. Click edit - this is where you add/remove accounts from the role using the checkbox.
 5. To have new permissions you need to logout and log back into designated account you selected. 
-6. You can now uncomment [Authorize(Roles = "Admin")] in the AdministrationController.cs
-7. You now have access to the 'Administration' tab in the navbar as well as the admin panels at the bottom of each page to manage your products & categories.
+6. You can now uncomment [Authorize(Roles = "Admin")] in the AdministrationController.cs to make the Admin views only accessible to your admin account.
+#### You now have access to the 'Administration' tab in the navbar as well as the admin panels at the bottom of each page to manage your products & categories.
 ------------------------------
 ## 👤 Contributor
 
