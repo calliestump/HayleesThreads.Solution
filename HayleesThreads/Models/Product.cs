@@ -8,7 +8,6 @@ namespace HayleesThreads.Models
     public Product()
     {
       this.JoinTables = new HashSet<CategoryProduct>();
-      // this.JoinTables2 = new HashSet<ShoppingCartProduct>();
     }
 
     public int ProductId { get; set; }
@@ -26,12 +25,9 @@ namespace HayleesThreads.Models
     public bool AllEars { get; set; }
     public int CategoryId { get; set; }
     
-    // public Cart CurrentCart { get; set; }
-    
-    public Category Category { get; set;} // Lets hope
+    public Category Category { get; set;} 
     public virtual ApplicationUser User { get; set; }
     
     public virtual ICollection<CategoryProduct> JoinTables { get; set; }
-    // public virtual ICollection<ShoppingCartProduct> JoinTables2 { get; set; }
   }
 }

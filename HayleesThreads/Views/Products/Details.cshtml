@@ -40,16 +40,18 @@
   <hr />
   <br />
   <div style="width: 5in" class="container card">
-    <br />
-    <h1><strong>Admin Controls</strong></h1>
-    <hr />
-    <br />
-    <h5>@Html.ActionLink("Edit Product", "Edit", new { id = Model.ProductId })</h5>
-    <h5>@Html.ActionLink("Delete Product", "Delete", new { id = Model.ProductId })</h5>
-    <h5>@Html.ActionLink("Assign this product to a category", "AddCategory", new { id = Model.ProductId })</h5>
-    <br />
-    <hr />
-    <h5>@Html.ActionLink("Back to Products", "Index")</h5>
-    <br />
+    <span id="productCard">
+      <br />
+      <h1><strong>Admin Controls</strong></h1>
+      <hr />
+      <br />
+      <h5>@Html.ActionLink("Edit Product", "Edit", new { id = Model.ProductId })</h5>
+      <h5>@Html.ActionLink("Delete Product", "Delete", new { id = Model.ProductId })</h5>
+      <h5>@Html.ActionLink("Assign this product to a category", "AddCategory", new { id = Model.ProductId })</h5>
+      <br />
+      <hr />
+      <h5>@Html.ActionLink("Back to Products", "Index")</h5>
+      <br />
+    </span>
   </div>
 }

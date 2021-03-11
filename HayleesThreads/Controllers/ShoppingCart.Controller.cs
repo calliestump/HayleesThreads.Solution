@@ -25,14 +25,9 @@ namespace HayleesThreads.Controllers
         _userManager = userManager;
         _db = db;
       }
-      // public ActionResult Index()
-      // {
-      //   return View();
-      // }
 
       public ViewResult Index()
       {
-        // _shoppingCart.JoinTables2 = _shoppingCart.GetAllShoppingCartProducts();
         _shoppingCart.ShoppingCartProducts = _shoppingCart.GetShoppingCartProducts();
         Console.WriteLine("Got Products");
         var shoppingCartViewModel = new ShoppingCartViewModel
@@ -74,11 +69,5 @@ namespace HayleesThreads.Controllers
         _shoppingCart.ClearShoppingCart();
         return RedirectToAction("Index");
       }
-      // public void AddToShoppingCart(int id)
-      // {
-      //   var thisProduct = _db.Products.FirstOrDefault(product => product.ProductId == id);
-
-      //   _db.SaveChanges();
-      // }
     } 
 }

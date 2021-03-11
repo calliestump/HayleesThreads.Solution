@@ -79,37 +79,21 @@ namespace HayleesThreads.Models
 
     public List<ShoppingCartProduct> GetShoppingCartProducts()
     {
-      // var shoppingCartProduct = JoinTables2.ToList() ?? (JoinTables2 = _db.ShoppingCartProducts.Where(s => s.ShoppingCartId == ShoppingCartId)
-      //   .Include(p => p.Product)
-      //   .ToList());
-      
-      // return shoppingCartProduct.ToList();
       var unlistedShoppingCartProducts = _db.ShoppingCartProducts.Where(c
        => c.ShoppingCartId == ShoppingCartId)
           .Include(s => s.Product);
       List<ShoppingCartProduct> shoppingCartProducts = unlistedShoppingCartProducts.ToList();
       return shoppingCartProducts;
     }
-    //ShoppingCartProducts ?? (ShoppingCartProducts =
-    // Convert.ToInt32()
 
     public void ClearShoppingCart()
     {
-      // var shoppingCartProduct = _db.ShoppingCartProducts.Where(i => i.ShoppingCartId == ShoppingCartId);
-      // _db.ShoppingCartProducts.RemoveRange(shoppingCartProduct);
-      // _db.SaveChanges();
+
       var cartProducts = _db.ShoppingCartProducts.Where(c => c.ShoppingCartId == ShoppingCartId);
       _db.ShoppingCartProducts.RemoveRange(cartProducts);
       _db.SaveChanges();
     }
 
-    // public long GetShoppingCartTotalPrice()
-    // {
-    //   var totalPrice = (long) _db.ShoppingCartProducts.Where(i => i.ShoppingCartId == ShoppingCartId)
-    //     .Select(p => p.Product.ProductPrice).Sum();
-      
-    //   return totalPrice;
-    // }
      public decimal GetShoppingCartTotalPrice()
     {
       decimal totalPrice = (decimal) _db.ShoppingCartProducts.Where(c => c.ShoppingCartId == ShoppingCartId)

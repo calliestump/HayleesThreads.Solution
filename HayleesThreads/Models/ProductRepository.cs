@@ -19,7 +19,7 @@ namespace HayleesThreads.Models
     {
       get
         {
-          return _db.Products.Include(p => p.Category); // ? Category -
+          return _db.Products.Include(p => p.Category); 
         }
     }
     public Product GetProductById(int productId)

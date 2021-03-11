@@ -65,48 +65,6 @@ namespace HayleesThreads.Models
           CategoryDescription = "Explore my custom Hats",
           // CategoryImage = ""
         });
-        
-  
-
-        // Products
-        // modelBuilder.Entity<Product>().HasData(new Product
-        // {
-        //   ProductId = 1,
-        //   ProductName = "Tree of Life",
-        //   ProductPrice = 14.99m,
-        //   ProductDescription = "Embroided 'Tree of Life'",
-        //   ProductImage = "\\img\\appa.jpg",
-        //   Featured = true,
-        //   AllEars = false,
-        //   CategoryId = 1
-        // });
-
-        // modelBuilder.Entity<Product>().HasData(new Product
-        // {
-        //   ProductId = 2,
-        //   ProductName = "Appa",
-        //   ProductPrice = 12.99m,
-        //   ProductDescription = "Hand-Embroided 'Appa' from Avatar: The Last Airbender",
-        //   ProductImage = "\\img\\appa.jpg",
-        //   Featured = true,
-        //   AllEars = true,
-        //   CategoryId = 2
-        // });
-
-        // // CategoryProduct
-        // modelBuilder.Entity<CategoryProduct>().HasData(new CategoryProduct
-        // {
-        //   CategoryProductId = 1,
-        //   CategoryId = 1,
-        //   ProductId = 1,
-        // });
-
-        // modelBuilder.Entity<CategoryProduct>().HasData(new CategoryProduct
-        // {
-        //   CategoryProductId = 2,
-        //   CategoryId = 2,
-        //   ProductId = 2,
-        // });
       }   
   }
 }

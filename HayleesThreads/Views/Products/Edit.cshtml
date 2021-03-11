@@ -4,44 +4,46 @@
 
 @model HayleesThreads.Models.Product
 <div style="width: 5in" class="container card">
-<br />
-<h2>Edit Details: @Html.Label("'")<strong>@Html.DisplayFor(model => model.ProductName)</strong>@Html.Label("'")</h2>
-<hr />
-<br />
-  @using (Html.BeginForm())
-  {
-    @Html.HiddenFor(model => model.ProductId)
-    
-    <span id="createProduct"> @Html.Label("Product Name")</span>
+  <span id="productCard">
     <br />
-    @Html.EditorFor(model => model.ProductName)
-    <br /><br />
-    <span id="createProduct">@Html.Label("Product Price")</span>
+    <h2>Edit Details: @Html.Label("'")<strong>@Html.DisplayFor(model => model.ProductName)</strong>@Html.Label("'")</h2>
+    <hr />
     <br />
-    @Html.EditorFor(model => model.ProductPrice)
-    <br /><br />
-    <span id="createProduct">@Html.Label("Product Description")</span>
+    @using (Html.BeginForm())
+    {
+      @Html.HiddenFor(model => model.ProductId)
+      
+      <span id="createProduct"> @Html.Label("Product Name")</span>
+      <br />
+      @Html.EditorFor(model => model.ProductName)
+      <br /><br />
+      <span id="createProduct">@Html.Label("Product Price")</span>
+      <br />
+      @Html.EditorFor(model => model.ProductPrice)
+      <br /><br />
+      <span id="createProduct">@Html.Label("Product Description")</span>
+      <br />
+      @Html.EditorFor(model => model.ProductDescription)
+      <br /><br />
+      <span id="createProduct">@Html.Label("Featured")</span>
+      <br />
+      @Html.EditorFor(model => model.Featured)
+      <br /><br />
+      <span id="createProduct">@Html.Label("Seasonal: All Ears")</span>
+      <br />
+      @Html.EditorFor(model => model.AllEars)
+      <br /><br />
+      <span id="createProduct">@Html.Label("Product Image")</span>
+      <br />
+      @Html.EditorFor(model => model.ProductImage)
+      <br />
+      <br /><br />
+      <input type="submit" value="Save" class="btn btn-outline-light" />
+    }
     <br />
-    @Html.EditorFor(model => model.ProductDescription)
-    <br /><br />
-    <span id="createProduct">@Html.Label("Featured")</span>
+    <hr />
     <br />
-    @Html.EditorFor(model => model.Featured)
-    <br /><br />
-    <span id="createProduct">@Html.Label("Seasonal: All Ears")</span>
+    <h5>@Html.ActionLink("Back to Products", "Index")</h5>
     <br />
-    @Html.EditorFor(model => model.AllEars)
-    <br /><br />
-    <span id="createProduct">@Html.Label("Product Image")</span>
-    <br />
-    @Html.EditorFor(model => model.ProductImage)
-    <br />
-    <br /><br />
-    <input type="submit" value="Save" class="btn btn-outline-light" />
-  }
-  <br />
-  <hr />
-  <br />
-  <h5>@Html.ActionLink("Back to Products", "Index")</h5>
-  <br />
+  </span>
 </div>
