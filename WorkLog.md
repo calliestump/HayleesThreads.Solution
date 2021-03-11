@@ -1,5 +1,5 @@
 <h1>Work Log</h1>
-<h2><strong>HayleesThreads</strong></h2>
+<h2><strong>Haylees Threads</strong></h2>
 <hr />
 <h2>03/04/2021</h2>
 <h3>Time: 12:04p.m</h3>

@@ -6,7 +6,7 @@
 ---
 ## <u>**About** </u>
 ### 🚩 **Description**
-This is an E-Commerce application for a HayleesThreads. Data and significant relationships are all stored/managed in a MySql database. 
+This is an E-Commerce application for a Haylees Threads. Data and significant relationships are all stored/managed in a MySql database. 
 
 ### 🐛 Known Bugs
 * There's no cart functionality
@@ -89,6 +89,20 @@ git remote add origin [personal Github repo. link]
 * dotnet script, REPL
 * Identity 
 
+## **Setting up User Roles**
+#### Navigate to HayleesThreads/Controllers/AdministrationController.cs" and comment out [Authorize(Roles = "Admin")] underneath the namespace. This will give you  access to Admin views without being logged in. 
+<br />
+
+#### Complete the following steps to assign an account to a user role:
+
+1. Register an account you would like to use with admin.
+2. Login into new account.
+3. In the url navigate to 'localhost:5000/administration/listroles'.
+4. Create a new role and name it "Admin".
+4. Click edit - this is where you add/remove accounts from the role using the checkbox.
+5. To have new permissions you need to logout and log back into designated account you selected. 
+6. You can now uncomment [Authorize(Roles = "Admin")] in the AdministrationController.cs
+7. You now have access to the 'Administration' tab in the navbar as well as the admin panels at the bottom of each page to manage your products & categories.
 ------------------------------
 ## 👤 Contributor
 

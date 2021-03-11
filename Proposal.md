@@ -1,8 +1,8 @@
 
-<strong>Callie Stump</strong> | <i>HayleesThreads</i>
+<strong>Callie Stump</strong> | <i>Haylees Threads</i>
 
 <u>Description</u><br />
-This web application will allow users to purchase original goods from <i><strong>HayleesThreads</strong></i> E-Commerce, with the use of a friendly UI.
+This web application will allow users to purchase original goods from <i><strong>Haylees Threads</strong></i> E-Commerce, with the use of a friendly UI.
 
 <u>MVP</u><br />
 * Many-Many relationships between Category and Products. 
