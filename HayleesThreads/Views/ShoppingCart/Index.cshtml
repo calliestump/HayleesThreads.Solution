@@ -30,7 +30,7 @@
           <tr>
             <td class="text-left"><a asp-controller="ShoppingCart" asp-action="RemoveFromShoppingCart" asp-route-productId="@item.Product.ProductId" alt=""><strong>Decrease Quantity</strong></a></td>
             <td class="text-center">@item.Quantity</td>
-            <td class="text-left">@item.Product.ProductName</td>
+            <td class="text-center"> <img id="cartImage" style="width: 100px;"src= @item.Product.ProductImage /><br/><br /> @item.Product.ProductName </td>
             <td class="text-right">@item.Product.ProductPrice.ToString("c")</td>
             <td class="text-right">
               @((item.Quantity * item.Product.ProductPrice).ToString("c"))
