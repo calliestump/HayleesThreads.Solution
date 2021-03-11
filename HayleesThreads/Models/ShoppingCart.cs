@@ -53,12 +53,12 @@ namespace HayleesThreads.Models
       _db.SaveChanges();
     }
 
-    public double RemoveFromShoppingCart(Product product)
+    public int RemoveFromShoppingCart(Product product)
     {
       var shoppingCartProduct = _db.ShoppingCartProducts.SingleOrDefault(
         s => s.Product.ProductId == product.ProductId && s.ShoppingCartId == ShoppingCartId);
 
-      var localAmount = 0.0;
+      var localAmount = 0;
 
       if(shoppingCartProduct != null)
       {

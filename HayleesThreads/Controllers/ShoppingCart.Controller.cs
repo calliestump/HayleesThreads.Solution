@@ -59,15 +59,21 @@ namespace HayleesThreads.Controllers
       public RedirectToActionResult RemoveFromShoppingCart(int productId) 
       {
         var selectedProduct = _productRepository.GetAllProducts.FirstOrDefault(c => c.ProductId == productId);
-
+        
         if(selectedProduct != null)
         {
           _shoppingCart.RemoveFromShoppingCart(selectedProduct);
+          Console.WriteLine("Removed Product");
         }
 
         return RedirectToAction("Index");
       }
 
+      public RedirectToActionResult ClearShoppingCart()
+      {
+        _shoppingCart.ClearShoppingCart();
+        return RedirectToAction("Index");
+      }
       // public void AddToShoppingCart(int id)
       // {
       //   var thisProduct = _db.Products.FirstOrDefault(product => product.ProductId == id);

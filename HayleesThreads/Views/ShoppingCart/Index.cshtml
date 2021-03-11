@@ -8,14 +8,15 @@
 @using HayleesThreads.ViewModels;
 @model ShoppingCartViewModel
 
-<div class = "container card">
-  <h1>Cart</h1>
+<div style="width:80%" class = "container card">
+  <h1>My Cart</h1>
   <hr />
-  <p>Your Products</p>
-  <table class="table table-bordered table-striped">
+
+  <table style="color:white" class="table table-bordered table-striped">
     <thead>
       <tr>
-        <th>Selected Amount</th>
+        <th>&nbsp;</th>
+        <th>Quantity</th>
         <th>Product</th>
         <th class="text-right">Price</th>
         <th class="text-right">Subtotal</th>
@@ -25,6 +26,7 @@
       @foreach(var item in Model.ShoppingCart.ShoppingCartProducts)
       {
         <tr>
+          <td class="text-left"><a asp-controller="ShoppingCart" asp-action="RemoveFromShoppingCart" asp-route-productId="@item.Product.ProductId" alt=""><strong>Decrease Quantity</strong></a></td>
           <td class="text-center">@item.Quantity</td>
           <td class="text-left">@item.Product.ProductName</td>
           <td class="text-right">@item.Product.ProductPrice.ToString("c")</td>
