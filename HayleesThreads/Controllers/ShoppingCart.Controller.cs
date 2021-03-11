@@ -29,7 +29,6 @@ namespace HayleesThreads.Controllers
       public ViewResult Index()
       {
         _shoppingCart.ShoppingCartProducts = _shoppingCart.GetShoppingCartProducts();
-        Console.WriteLine("Got Products");
         var shoppingCartViewModel = new ShoppingCartViewModel
         {
           ShoppingCart = _shoppingCart,
@@ -58,7 +57,7 @@ namespace HayleesThreads.Controllers
         if(selectedProduct != null)
         {
           _shoppingCart.RemoveFromShoppingCart(selectedProduct);
-          Console.WriteLine("Removed Product");
+          // Console.WriteLine("Removed Product");
         }
 
         return RedirectToAction("Index");
