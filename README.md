@@ -9,8 +9,8 @@
 This is an E-Commerce application for a Haylees Threads. Data and significant relationships are all stored/managed in a MySql database. 
 
 ### 🐛 Known Bugs
-* There's no cart functionality
-* Order form isnt connected
+* The 'decrease quantity' button isnt working for Shopping Cart.
+* Order form isnt connected.
 * Payment method isnt functioning. 
 * Search bar is inactive. 
 
@@ -25,6 +25,33 @@ This is an E-Commerce application for a Haylees Threads. Data and significant re
 * As an admin, I need to be able to add, edit, or remove categories and products. I also need to be able to modify their relationship from the other side.
 </details>
 <hr>
+
+## <u><strong>Demonstrations</strong></u>
+<details>
+<summary>Expand</summary>
+
+<br />
+
+### Customer UI:
+
+<img src="HayleesThreads/wwwroot/img/customerUI.gif">
+
+<br /><br />
+
+### Admin UI:
+
+<img src="HayleesThreads/wwwroot/img/adminUI.gif">
+</details>
+<br />
+
+<!-- ### Customer UI:
+<img src="HayleesThreads/wwwroot/img/adminUI.gif">
+<br /><br /> -->
+
+<!-- ### Admin UI:
+<img src="HayleesThreads/wwwroot/img/adminUI.gif">
+
+<br /><br /> -->
 
 ## <u>**Getting Started**</u>
 ### **☑️ Requirements**
