@@ -8,48 +8,60 @@
 @using HayleesThreads.ViewModels;
 @model ShoppingCartViewModel
 
-<div style="width:80%" class = "container card">
-  <span style="padding:4%" id="productCard">
+ @if (@Model.ShoppingCartTotalPrice == 0) {
+        <div style="width: 500px;" class = "container card">
+          <span id="productCard">
+            <br />
+            <h1>My Cart</h1><hr /><br />
+            <h5>Your cart is empty :(</h5><br /><br />
+          </span>
+        </div><br /><br />
+        <h5><a class="btn btn-outline-light" asp-controller="Products" asp-action="Index">Go Shopping</a></h5><br />
+    } 
+    else 
+    {
 
-    <h1>My Cart</h1>
-    <hr />
+    <div style="width:80%" class = "container card">
+      <span style="padding:4%" id="productCard">
 
-    <table style="color:white" class="table table-bordered table-striped">
-      <thead>
-        <tr>
-          <th>&nbsp;</th>
-          <th>Quantity</th>
-          <th>Product</th>
-          <th class="text-right">Price</th>
-          <th class="text-right">Subtotal</th>
-        </tr>
-      </thead>
-      <tbody>
-        @foreach(var item in Model.ShoppingCart.ShoppingCartProducts)
-        {
-          <tr>
-            <td class="text-left"><a asp-controller="ShoppingCart" asp-action="RemoveFromShoppingCart" asp-route-productId="@item.Product.ProductId" alt=""><strong>Decrease Quantity</strong></a></td>
-            <td class="text-center">@item.Quantity</td>
-            <td class="text-center"> <img id="cartImage" style="width: 100px;"src= @item.Product.ProductImage /><br/><br /> @item.Product.ProductName </td>
-            <td class="text-right">@item.Product.ProductPrice.ToString("c")</td>
-            <td class="text-right">
-              @((item.Quantity * item.Product.ProductPrice).ToString("c"))
-            </td>
-          </tr>
-        }
-      </tbody>
-      <tfoot>
-        <td colspan="3" class="text-right">Total Price</td>
-        <td class="text-right">@Model.ShoppingCartTotalPrice.ToString("c")</td>
-      </tfoot>
-    </table>
-    <div class="text-center">
-    <hr />
-      <a class="btn btn-outline-light" asp-controller="ShoppingCart" asp-action="ClearShoppingCart">Clear Cart</a>
-        <a class="btn btn-outline-light" asp-controller="Order" asp-action="Index">Checkout</a>
+        <h1>My Cart</h1>
+        <hr />
+        <table style="color:white" class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>&nbsp;</th>
+              <th>Quantity</th>
+              <th>Product</th>
+              <th class="text-right">Price</th>
+              <th class="text-right">Subtotal</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach(var item in Model.ShoppingCart.ShoppingCartProducts)
+            {
+              <tr>
+                <td class="text-left"><a asp-controller="ShoppingCart" asp-action="RemoveFromShoppingCart" asp-route-productId="@item.Product.ProductId" alt=""><strong>Decrease Quantity</strong></a></td>
+                <td class="text-center">@item.Quantity</td>
+                <td class="text-center"> <img id="cartImage" style="width: 100px;"src= @item.Product.ProductImage /><br/><br /> <strong>'@item.Product.ProductName' </strong></td>
+                <td class="text-right">@item.Product.ProductPrice.ToString("c")</td>
+                <td class="text-right">
+                  @((item.Quantity * item.Product.ProductPrice).ToString("c"))
+                </td>
+              </tr>
+            }
+          </tbody>
+          <tfoot>
+            <td colspan="3" class="text-right">Total Price</td>
+            <td class="text-right">@Model.ShoppingCartTotalPrice.ToString("c")</td>
+          </tfoot>
+        </table>
+        <div class="text-center">
+        <hr />
+          <a class="btn btn-outline-light" asp-controller="ShoppingCart" asp-action="ClearShoppingCart">Clear Cart</a>
+            <a class="btn btn-outline-light" asp-controller="Order" asp-action="Index">Checkout</a>
+        </div>
+      </span>
     </div>
-  </span>
-</div>
-<br /><br />
-
-<h5><a class="btn btn-outline-light" asp-controller="Products" asp-action="Index">Continue Shopping</a></h5>
+    <br /><br />
+    <h5><a class="btn btn-outline-light" asp-controller="Products" asp-action="Index">Continue Shopping</a></h5><br />
+    }
