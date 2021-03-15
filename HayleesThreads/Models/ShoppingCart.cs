@@ -78,25 +78,29 @@ namespace HayleesThreads.Models
 
     public List<ShoppingCartProduct> GetShoppingCartProducts()
     {
-      var unlistedShoppingCartProducts = _db.ShoppingCartProducts.Where(c
-       => c.ShoppingCartId == ShoppingCartId)
-          .Include(s => s.Product);
-      List<ShoppingCartProduct> shoppingCartProducts = unlistedShoppingCartProducts.ToList();
-      return shoppingCartProducts;
+      // var unlistedShoppingCartProducts = _db.ShoppingCartProducts.Where(c
+      //  => c.ShoppingCartId == ShoppingCartId)
+      //     .Include(s => s.Product);
+      // List<ShoppingCartProduct> shoppingCartProducts = unlistedShoppingCartProducts.ToList();
+      // return shoppingCartProducts;
+      return ShoppingCartProducts ?? (ShoppingCartProducts = _db.ShoppingCartProducts.Where(c //filters specific products that are in the current cart.
+       => c.ShoppingCartId == ShoppingCartId) // Matches the ShoppingCartId created for class.
+       .Include(s => s.Product) // Grabs all products
+       .ToList()); // Puts it into list.
     }
 
     public void ClearShoppingCart()
     {
 
-      var cartProducts = _db.ShoppingCartProducts.Where(c => c.ShoppingCartId == ShoppingCartId);
-      _db.ShoppingCartProducts.RemoveRange(cartProducts);
-      _db.SaveChanges();
+      var cartProducts = _db.ShoppingCartProducts.Where(c => c.ShoppingCartId == ShoppingCartId); // gets all products in database that belong to specific ShoppingCartId.
+      _db.ShoppingCartProducts.RemoveRange(cartProducts); // Removes all products retrived from line 95.
+      _db.SaveChanges(); 
     }
 
      public decimal GetShoppingCartTotalPrice()
     {
-      decimal totalPrice = (decimal) _db.ShoppingCartProducts.Where(c => c.ShoppingCartId == ShoppingCartId)
-        .Select(c => c.Product.ProductPrice * c.Quantity).Sum();
+      decimal totalPrice = (decimal) _db.ShoppingCartProducts.Where(c => c.ShoppingCartId == ShoppingCartId) // retrives all products in specific ShoppingCartId.
+        .Select(c => c.Product.ProductPrice * c.Quantity).Sum(); // Selects only the calculated total value.
       
       return totalPrice;
     }
