@@ -9,7 +9,6 @@
 This is an E-Commerce application for a Haylees Threads. Data and significant relationships are all stored/managed in a MySql database. 
 
 ### 🐛 Known Bugs
-* The 'decrease quantity' button isnt working for Shopping Cart.
 * Order form isnt connected.
 * Payment method isnt functioning. 
 * Search bar is inactive. 
