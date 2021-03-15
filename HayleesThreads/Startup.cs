@@ -25,12 +25,11 @@ namespace HayleesThreads
     {
       services.AddMvc();
       services.AddScoped<IProductRepository, ProductRepository>();
-      services.AddScoped<ShoppingCart>(sc => ShoppingCart.GetShoppingCart(sc));
+      services.AddScoped<ShoppingCart>(sc => ShoppingCart.GetShoppingCart(sc)); // means the interaction within this shopping cart will use the same request until request is finished.
 
-      services.AddHttpContextAccessor();
-      services.AddSession();
+      services.AddHttpContextAccessor(); // class configuration for Sessions to be used from Non-Controller class. 
+      services.AddSession(); // class configuration for sessions to be used from the controller.
 
-      // Microsoft.AspNetCore.Http.DefaultHttpContext.get_Session()
       services.AddEntityFrameworkMySql()
         .AddDbContext<HayleesThreadsContext>(options => options
         .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
@@ -58,7 +57,7 @@ namespace HayleesThreads
 
       app.UseAuthentication();
 
-      app.UseSession();
+      app.UseSession(); // middleware to support sessions for controllers.
 
       app.UseMvc(routes =>
       {
