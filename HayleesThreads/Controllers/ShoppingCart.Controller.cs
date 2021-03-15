@@ -52,12 +52,11 @@ namespace HayleesThreads.Controllers
 
       public RedirectToActionResult RemoveFromShoppingCart(int productId) 
       {
-        var selectedProduct = _productRepository.GetAllProducts.FirstOrDefault(c => c.ProductId == productId);
+        var selectedProduct = _db.Products.FirstOrDefault(c => c.ProductId == productId);
         
         if(selectedProduct != null)
         {
           _shoppingCart.RemoveFromShoppingCart(selectedProduct);
-          // Console.WriteLine("Removed Product");
         }
 
         return RedirectToAction("Index");

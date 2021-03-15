@@ -29,7 +29,7 @@
         <table style="color:white" class="table table-bordered table-striped">
           <thead>
             <tr>
-              <th>&nbsp;</th>
+        
               <th>Quantity</th>
               <th>Product</th>
               <th class="text-right">Price</th>
@@ -40,8 +40,7 @@
             @foreach(var item in Model.ShoppingCart.ShoppingCartProducts)
             {
               <tr>
-                <td class="text-left"><a asp-controller="ShoppingCart" asp-action="RemoveFromShoppingCart" asp-route-productId="@item.Product.ProductId" alt=""><strong>Decrease Quantity</strong></a></td>
-                <td class="text-center">@item.Quantity</td>
+                <td class="text-center"><br /><br /><br /><h4><a asp-controller="ShoppingCart" asp-action="RemoveFromShoppingCart" asp-route-productId="@item.Product.ProductId" alt="">- </a><strong style="padding: 4%; box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.1);">@item.Quantity </strong><a asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-productId="@item.Product.ProductId" alt="">+</a></h4></td>
                 <td class="text-center"><img id="cartImage" style="width: 120px;"src= @item.Product.ProductImage /><br/><br /> <strong>'@item.Product.ProductName' </strong></td>
                 <td class="text-right">@item.Product.ProductPrice.ToString("c")</td>
                 <td class="text-right">

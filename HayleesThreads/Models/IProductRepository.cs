@@ -10,6 +10,5 @@ namespace HayleesThreads.Models
   {
     IEnumerable<Product> GetAllProducts { get; }
     Product GetProductById(int productId);
-
   }
 }
