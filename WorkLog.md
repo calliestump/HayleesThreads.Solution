@@ -20,4 +20,8 @@
 <h4>Description: Looked over more cart-product tutorials - currently praying :'( .</h4>
 <h3>Time: 7:45p.m - 8:00p.m</h3>
 <h4>Description: Read over documentation of one-to-many and many-to-many for cart/product relationship.</h4>
+<hr />
+<h2>03/15/2021</h2>
+<h3>Time: 4:15p.m</h3>
+<h4>Description: Uploads new customer UI demo.</h4>
 
