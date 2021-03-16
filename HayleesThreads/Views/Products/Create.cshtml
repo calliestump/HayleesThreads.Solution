@@ -42,11 +42,6 @@
       @Html.TextBoxFor(model => model.ProductImage)
       <span asp-validation-for="ProductImage" class="danger"></span>
       <br /><br />
-      <span id="createProduct">@Html.Label("Category")</span>
-      <br />
-      @Html.TextBoxFor(model => model.Category.CategoryName)
-      <span asp-validation-for="@Model.Category.CategoryName" class="danger"></span>
-      <br /><br />
       <input class="btn btn-outline-light" type="submit" type="button" value="Upload new Product!" />
     }
     <br /> 

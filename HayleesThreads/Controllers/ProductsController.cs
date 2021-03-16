@@ -55,6 +55,7 @@ namespace HayleesThreads.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+    
     [Authorize]
     public ActionResult Edit(int id)
     {
