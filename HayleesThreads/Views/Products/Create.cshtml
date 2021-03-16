@@ -27,20 +27,20 @@
       @Html.TextBoxFor(model => model.ProductDescription)
       <span asp-validation-for="ProductDescription" class="danger"></span>
       <br /><br />
-      <span id="createProduct">@Html.Label("Featured? (true/false)")</span>
-      <br />
-      @Html.TextBoxFor(model => model.Featured)
-      <span asp-validation-for="Featured" class="danger"></span>
-      <br /><br />
-      <span id="createProduct">@Html.Label("Is this apart of Seasonal: All Ears? (true/false)")</span>
-      <br />
-      @Html.TextBoxFor(model => model.AllEars)
-      <span asp-validation-for="AllEars" class="danger"></span>
-      <br /><br />
       <span id="createProduct">@Html.Label("Product Image")</span>
       <br />
       @Html.TextBoxFor(model => model.ProductImage)
       <span asp-validation-for="ProductImage" class="danger"></span>
+      <br /><br />
+      <span id="createProduct">@Html.Label("Featured?")</span>
+      <br />
+      @Html.CheckBoxFor(model => model.Featured)
+      <span asp-validation-for="Featured" class="danger"></span>
+      <br /><br />
+      <span id="createProduct">@Html.Label("Seasonal: All Ears?")</span>
+      <br />
+      @Html.CheckBoxFor(model => model.AllEars)
+      <span asp-validation-for="AllEars" class="danger"></span>
       <br /><br />
       <input class="btn btn-outline-light" type="submit" type="button" value="Upload new Product!" />
     }
